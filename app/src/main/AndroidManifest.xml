@@ -11,17 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.SignIn">
+        <activity android:name=".Activities.Chat" />
+        <activity android:name=".Activities.StarredMessages" />
+        <activity android:name=".Activities.NewGroupFormation" />
+        <activity android:name=".Activities.Registration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Activities.FindUser"/>
-        <activity android:name=".Activities.Registration"/>
-        <activity android:name=".Activities.UserDetail"/>
+        <activity android:name=".Activities.ChatList" />
+        <activity android:name=".Activities.UserDetail" />
     </application>
 
 </manifest>

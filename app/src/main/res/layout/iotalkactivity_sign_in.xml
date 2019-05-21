@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <androidx.constraintlayout.widget.ConstraintLayout  android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/constraintLayoutSignIn" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout android:layout_height="610dp" android:layout_width="359dp" android:id="@+id/linearLayoutSignIn" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.1" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent" android:orientation="vertical" android:layout_marginBottom="8dp" android:layout_marginEnd="8dp" android:layout_marginTop="8dp" android:layout_marginStart="24dp">
+
+    <ImageView
+        android:id="@+id/viewSignIn"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/gradient_signin"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageView android:layout_height="47dp" android:layout_width="49dp" android:id="@+id/viewPlaySignIn" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="-60dp" android:layout_marginStart="159dp" tools:layout_editor_absoluteX="16dp" android:background="@drawable/playbuttonsignin"/>
+
+    <TextView android:layout_height="54dp" android:layout_width="match_parent" android:id="@+id/textViewSignIn" android:layout_marginTop="40dp" android:textSize="30sp" android:textColor="#000000" android:text="Let's get started " android:gravity="center" android:fontFamily="@font/fashionfetishbold"/>
+
+    <TextView android:layout_height="73dp" android:layout_width="match_parent" android:id="@+id/viewCreateAccountSignIn" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="170dp" tools:layout_editor_absoluteX="16dp" android:background="@drawable/gradient_signin2" android:textSize="30sp" android:textColor="#FFFFFF" android:text="Create Account" android:gravity="center" android:fontFamily="@font/chivoregular"/>
+
+    <TextView android:layout_height="73dp" android:layout_width="match_parent" android:id="@+id/viewLoginSignIn" android:layout_marginTop="30dp" android:background="@drawable/gradient_signin2" android:textSize="30sp" android:textColor="#FFFFFF" android:text="Login" android:gravity="center" android:fontFamily="@font/chivoregular"/>
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

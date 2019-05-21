@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutNewGroup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1NewGroup"
+        android:layout_width="413dp"
+        android:layout_height="732dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2NewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/gradient_profileinfo"
+            android:orientation="horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp">
+
+            <TextView
+                android:id="@+id/textViewNewGroup"
+                android:layout_width="336dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/fashionfetishbold"
+                android:gravity="center_vertical"
+                android:text="New Group"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/viewSearchNewGroup"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/searchiconchatscreen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3NewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/viewProfilePicNewGroup"
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundbluebordergrouppic" />
+
+            <ImageView
+                android:id="@+id/imageViewCameraIconNewGroup"
+                android:layout_width="126dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="-60dp"
+                android:layout_marginTop="35dp"
+                android:layout_weight="1"
+                android:src="@drawable/cameranewgroupicon" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4NewGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextGroupSubjectNewGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:ems="10"
+                    android:fontFamily="@font/fashionfetishbold"
+                    android:hint="Type group subject here..."
+                    android:inputType="textPersonName"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView2NewGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  Provide a group subject and optional group icon"
+                    android:textColor="#9F9F9F"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextGroupDescriptionNewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="14dp"
+            android:ems="10"
+            android:fontFamily="@font/fashionfetishbold"
+            android:foregroundGravity="center_vertical"
+            android:hint="Group description (optional)"
+            android:inputType="textPersonName"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView3NewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fashionfetishbold"
+            android:gravity="center_vertical"
+            android:text=" Choose participants"
+            android:textColor="#9F9F9F"
+            android:textSize="12sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="352dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="14dp" />
+
+        <View
+            android:id="@+id/viewTickSignNewGroup"
+            android:layout_width="75dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="325dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/gradient_signin"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <ImageView
+            android:id="@+id/tickSignNewGroup"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="340dp"
+            android:layout_marginTop="-50dp"
+            android:background="@drawable/checkmarksignin"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chatListConstraintLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="7dp"
+    android:background="@drawable/chatlistbackground"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="-20dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="-10dp">
+
+
+    <LinearLayout
+        android:id="@+id/chatListLinearLayout1"
+        android:layout_width="445dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/chatListProfilePic"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/roundprofilepicfollower"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutFollowerInfo"
+            app:layout_constraintHorizontal_bias="0.005"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <TextView
+            android:id="@+id/chatListName"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/chivoregular"
+            android:gravity="left"
+            android:text="Contact Name"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.933"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/chatListLinearLayout2"
+            android:layout_width="137dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/chatListLinearLayout3"
+                android:layout_width="84dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/viewAttachIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/roundattachiconbackground" />
+
+                <ImageView
+                    android:id="@+id/imageViewAttachIcon"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="-35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/attachiconchat" />
+
+                <View
+                    android:id="@+id/viewUnseenMessages"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/roundunseenmessagesbackground" />
+
+                <TextView
+                    android:id="@+id/textViewNoOfUnseenMessages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-63dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewTimeOfMessage"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="right"
+                android:text="Time "
+                android:textColor="#000000"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
