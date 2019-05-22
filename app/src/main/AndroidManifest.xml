@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Activities.NewChatButton"></activity>
         <activity android:name=".Activities.Chat" />
         <activity android:name=".Activities.StarredMessages" />
         <activity android:name=".Activities.NewGroupFormation" />

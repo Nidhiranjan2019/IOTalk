@@ -24,7 +24,7 @@ import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCall
 
 import java.util.concurrent.TimeUnit;
 
-import in.codepredators.delta.Activities.FindUser;
+import in.codepredators.delta.Activities.ChatList;
 import in.codepredators.delta.R;
 
 public class Registration extends AppCompatActivity
@@ -110,7 +110,7 @@ public class Registration extends AppCompatActivity
     {
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
-            startActivity(new Intent(getApplicationContext(), FindUser.class));
+            startActivity(new Intent(getApplicationContext(), ChatList.class));
             finish();
             return;
         }

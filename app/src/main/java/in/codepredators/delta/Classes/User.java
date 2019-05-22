@@ -133,4 +133,3 @@ public class User {
         this.userLastSeenVisibility = userLastSeenVisibility;
     }
 }
-

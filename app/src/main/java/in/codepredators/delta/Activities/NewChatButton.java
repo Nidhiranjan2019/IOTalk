@@ -4,11 +4,11 @@
 //
 //import android.os.Bundle;
 //
-//public class Chat extends AppCompatActivity {
+//public class NewChatButton extends AppCompatActivity {
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_personal_chats);
+//        setContentView(R.layout.activity_new_chat_button);
 //    }
 //}

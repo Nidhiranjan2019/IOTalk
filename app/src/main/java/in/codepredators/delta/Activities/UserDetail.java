@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,6 +24,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -38,12 +40,15 @@ import in.codepredators.delta.R;
 
 public class UserDetail extends AppCompatActivity {
 
+    private static int a;
     private StorageReference mStorageRef;
 
     ImageView profilePic;
     EditText userName;
     EditText userBio;
     TextView proceedUserAccount;
+    String downloadUrl;
+    HashMap<String,String> codeHashmap;
     RecyclerView coderecycler;
     List<Codelanguages> codeList;
     TextView openrecyclerview;
@@ -55,7 +60,9 @@ public class UserDetail extends AppCompatActivity {
             "C++",
             "python"
     };
-    public static void usercodelistfunc(int i){
+    public static void usercodelistfunc(int i)
+    {
+        a=a+1;
         userCodeList.add(codename[i]);
     }
     User user;
@@ -88,31 +95,39 @@ public class UserDetail extends AppCompatActivity {
         userName = findViewById(R.id.editTextUserName);
         proceedUserAccount = findViewById(R.id.textViewProceedUserAccountInfo);
         openrecyclerview  = findViewById(R.id.textViewCodeLanguageRecyclerView);
-
+        codeHashmap = new HashMap<>();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        for(int i =0;i<a;i++)
+        {
+            codeHashmap.put(userCodeList.get(i).toString(),"Raj");
+        }
 
 
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+                final StorageReference riversRef = mStorageRef.child("images.jpg");
 
-        StorageReference riversRef = mStorageRef.child("images.jpg");
+                riversRef.putFile(imageUri)
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // Got the download URL for 'users/me/profile.png'
+                                downloadUrl = riversRef.getDownloadUrl().toString();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                // Handle unsuccessful uploads
+                                // ...
+                            }
+                        });
 
-        riversRef.putFile(imageUri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // Get a URL to the uploaded content
-                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        // ...
-                    }
-                });
-
+            }
+        });
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -143,6 +158,8 @@ public class UserDetail extends AppCompatActivity {
         user.setUID(sharedPreferences.getString("UID","NOTFOUND"));
         user.setUserName(sharedPreferences.getString("UserName","NOTFOUND"));
         user.setUserBio(sharedPreferences.getString("UserBio","NOTFOUND"));
+        user.setUserProfilePic(sharedPreferences.getString("UserProfilePic","NOTFOUND"));
+//hash map shared preferences is remaining
 
         ImageView imageView = (ImageView) findViewById(R.id.profilePicUserAccountInfo2);
         int RESULT_LOAD_IMAGE =1;
@@ -158,10 +175,14 @@ public class UserDetail extends AppCompatActivity {
             {
                 user.setUserBio(userBio.getText().toString());
                 user.setUserName(userName.getText().toString());
+                user.setUserProfilePic(downloadUrl);
                 user.setUID(UID);
+                user.setUserLanguages(codeHashmap);
                 editor.putString("UserName",user.getUserName());
                 editor.putString("UserBio",user.getUserBio());
                 editor.putString("UID",UID);
+                editor.putString("UserProfilePic",downloadUrl);
+                mReference.push().setValue(codeHashmap);
                 editor.commit();
                 FirebaseDatabase.getInstance().getReference().child("users").child(UID).setValue(user);
                 coderecycler.setVisibility(View.GONE);

@@ -14,7 +14,7 @@ import in.codepredators.delta.R;
 
 
 public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdapterChatPeople.ViewHolderChatPeople> {
-    private List<Chatpeople> chatList;
+    private List<Chatpeople> chatpeopleList;
 
 
     public class ViewHolderChatPeople extends RecyclerView.ViewHolder {
@@ -37,7 +37,7 @@ public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdap
         }
     }
     public RecyclerAdapterChatPeople(List<Chatpeople> chatList) {
-        this.chatList = chatList;
+        this.chatpeopleList = chatList;
     }
     @NonNull
     @Override
@@ -48,7 +48,7 @@ public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderChatPeople viewHolder, int i) {
-        Chatpeople chatpeople = chatList.get(i);
+        Chatpeople chatpeople = chatpeopleList.get(i);
         viewHolder. textViewTimeOfMessage.setText(chatpeople.getTextViewTimeOfMessage());
         viewHolder.chatListName.setText(chatpeople.getChatListName());
         viewHolder.textViewNoOfUnseenMessages.setText(chatpeople.getTextViewNoOfUnseenMessages());
@@ -58,7 +58,7 @@ public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdap
     @Override
     public int getItemCount() {
 
-        return chatList.size();
+        return chatpeopleList.size();
     }
 
 }

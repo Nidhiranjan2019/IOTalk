@@ -1,15 +1,18 @@
 package in.codepredators.delta.Classes;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import in.codepredators.delta.Activities.UserDetail;
 import in.codepredators.delta.R;
 
 
@@ -40,11 +43,14 @@ public class RecyclerAdapterCodeLanguages extends RecyclerView.Adapter<RecyclerA
         return new ViewHolderCodeLanguages(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolderCodeLanguages viewHolder, int i) {
-        Codelanguages codelanguages = languageList.get(i);
-        viewHolder. codeLanguageEnter.setText(codelanguages.getCodeLanguageEnter());
-
+    public void onBindViewHolder(ViewHolderCodeLanguages holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UserDetail.usercodelistfunc(position);
+                Log.i("item clicked","yes");
+            }
+        });
     }
 
     @Override
