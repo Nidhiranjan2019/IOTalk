@@ -48,11 +48,11 @@
                 android:id="@+id/codeProfilePic"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/roundprofilepicfollower"
+                android:background="@drawable/roundprofilepiccontact"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/linearLayoutFollowerInfo"
                 app:layout_constraintHorizontal_bias="0.005"
@@ -63,9 +63,9 @@
 
             <TextView
                 android:id="@+id/codeMessageSender"
-                android:layout_width="135dp"
+                android:layout_width="85dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/chivoregular"
@@ -82,24 +82,35 @@
 
             <ImageView
                 android:id="@+id/codeArrowimageView"
-                android:layout_width="37dp"
+                android:layout_width="2dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="-15dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/rightarrowicon" />
 
             <TextView
                 android:id="@+id/codeMessageReceiver"
-                android:layout_width="135dp"
+                android:layout_width="43dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="-20dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/chivoregular"
                 android:text="Receiver"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="43dp"
+                android:layout_marginTop="1dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/chivoregular"
+                android:text="more"
+                android:textColor="#C1A0EE"
+                android:textSize="18dp" />
 
 
         </LinearLayout>

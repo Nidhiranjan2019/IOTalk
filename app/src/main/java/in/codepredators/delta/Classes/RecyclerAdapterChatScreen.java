@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.codepredators.delta.R;
 
 
-public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdapterChatPeople.ViewHolderChatPeople> {
-    private List<Chatpeople> chatpeopleList;
+public class RecyclerAdapterChatScreen extends RecyclerView.Adapter<RecyclerAdapterChatScreen.ViewHolderChatScreen> {
+    private List<ChatScreen> chatpeopleList;
 
 
-    public class ViewHolderChatPeople extends RecyclerView.ViewHolder {
+    public class ViewHolderChatScreen extends RecyclerView.ViewHolder {
         public TextView textViewTimeOfMessage;
         public TextView chatListName;
         public View chatListProfilePic;
@@ -25,7 +25,7 @@ public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdap
         public TextView textViewNoOfUnseenMessages;
 
 
-        public ViewHolderChatPeople(@NonNull View itemView) {
+        public ViewHolderChatScreen(@NonNull View itemView) {
             super(itemView);
 
             textViewTimeOfMessage = itemView.findViewById(R.id.textViewTimeOfMessage);
@@ -36,19 +36,19 @@ public class RecyclerAdapterChatPeople extends RecyclerView.Adapter<RecyclerAdap
 
         }
     }
-    public RecyclerAdapterChatPeople(List<Chatpeople> chatList) {
+    public RecyclerAdapterChatScreen(List<ChatScreen> chatList) {
         this.chatpeopleList = chatList;
     }
     @NonNull
     @Override
-    public ViewHolderChatPeople onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolderChatScreen onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.chatrecyclerview,viewGroup,false);
-        return new ViewHolderChatPeople(view);
+        return new ViewHolderChatScreen(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderChatPeople viewHolder, int i) {
-        Chatpeople chatpeople = chatpeopleList.get(i);
+    public void onBindViewHolder(@NonNull ViewHolderChatScreen viewHolder, int i) {
+        ChatScreen chatpeople = chatpeopleList.get(i);
         viewHolder. textViewTimeOfMessage.setText(chatpeople.getTextViewTimeOfMessage());
         viewHolder.chatListName.setText(chatpeople.getChatListName());
         viewHolder.textViewNoOfUnseenMessages.setText(chatpeople.getTextViewNoOfUnseenMessages());

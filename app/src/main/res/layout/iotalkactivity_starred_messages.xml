@@ -14,7 +14,6 @@
         android:layout_width="415dp"
         android:layout_height="735dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
@@ -27,7 +26,7 @@
             android:id="@+id/linearLayout2StarredMessages"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:orientation="horizontal"
@@ -48,19 +47,20 @@
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/viewSearchStarredMessages"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
+                android:id="@+id/viewSearchSelectContacts"
+                android:layout_width="70dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/searchiconchatscreen" />
 
             <ImageView
-                android:id="@+id/viewettingsStarredMessages"
-                android:layout_width="115dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
+                android:id="@+id/viewSettingsSelectContacts"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/settingschatscreen" />
@@ -70,7 +70,7 @@
             android:id="@+id/recyclerViewStarredMessages"
             android:layout_width="match_parent"
             android:layout_height="648dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="0dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

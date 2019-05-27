@@ -41,9 +41,66 @@
                 android:layout_height="49dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/roundprofilepicfollower"
+                android:background="@drawable/roundprofilepiccontact"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/linearLayoutFollowerInfo"
                 app:layout_constraintHorizontal_bias="0.005"
@@ -51,21 +108,15 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <View
-                android:id="@+id/selectContactsView1"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginTop="-25dp"
-                android:background="@drawable/roundunseenmessagesbackground" />
 
             <ImageView
                 android:id="@+id/selectContactsTickImageView"
-                android:layout_width="17dp"
-                android:layout_height="wrap_content"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginStart="53dp"
-                android:layout_marginTop="-15dp"
-                app:srcCompat="@drawable/checkmarksignin" />
+                android:layout_marginTop="-25dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/purplecheckbox" />
         </LinearLayout>
 
         <LinearLayout

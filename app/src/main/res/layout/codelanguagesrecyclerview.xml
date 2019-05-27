@@ -4,8 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/codeLanguageConstraintLayout"
-    android:layout_width="wrap_content"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
     android:layout_marginBottom="7dp"
     android:background="#FFFFFF"
     android:clickable="true"
@@ -18,13 +20,13 @@
 
     <LinearLayout
         android:id="@+id/codeLanguageLinearLayout2"
-        android:layout_width="386dp"
+        android:layout_width="300dp"
         android:layout_height="29dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/codelanguagebackground"
         android:orientation="horizontal"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,9 +46,9 @@
             android:id="@+id/codeLanguageCheckboximageView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="-160dp"
+            android:layout_marginStart="-65dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/forwardarrowicon" />
+            app:srcCompat="@drawable/purplecheckbox" />
 
     </LinearLayout>
 

@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp"
     android:background="@drawable/chatlistbackground"
-    android:clickable="true"
+    android:clipToPadding="false"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="16dp"
@@ -35,11 +35,10 @@
             android:id="@+id/newGroupProfilePic"
             android:layout_width="49dp"
             android:layout_height="49dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/roundprofilepicfollower"
+            android:background="@drawable/roundprofilepiccontact"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayoutFollowerInfo"
             app:layout_constraintHorizontal_bias="0.005"
@@ -48,41 +47,40 @@
             app:layout_constraintVertical_bias="0.0" />
 
 
-        <TextView
-            android:id="@+id/newGroupName"
-            android:layout_width="184dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/chivoregular"
-            android:gravity="left"
-            android:text="Contact Name"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.933"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:id="@+id/newGroupLinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:orientation="horizontal">
 
-        <View
-            android:id="@+id/newGroupView2"
-            android:layout_width="31dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="65dp"
-            android:background="@drawable/roundunseenmessagesbackground"
-            android:orientation="vertical">
+            <TextView
+                android:id="@+id/newGroupName"
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="left"
+                android:text="Contact Name"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.933"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-        </View>
-
-        <ImageView
-            android:id="@+id/imageViewTickNewGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="-96dp"
-            app:srcCompat="@drawable/checkmarksignin" />
+            <ImageView
+                android:id="@+id/imageViewTickNewGroup"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="2dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/purplecheckbox" />
+        </LinearLayout>
 
 
     </LinearLayout>

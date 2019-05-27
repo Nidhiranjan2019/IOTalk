@@ -4,7 +4,7 @@
     <!-- View background color -->
    <gradient
        android:startColor="#0082EE"
-       android:centerColor="#8BC9FC"
+       android:centerColor="#0082EE"
        android:endColor="#CEA2EE" />
 
     <!-- The radius makes the corners rounded -->

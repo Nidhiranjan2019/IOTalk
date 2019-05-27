@@ -14,7 +14,7 @@ import in.codepredators.delta.R;
 
 
 public class RecyclerAdapterStarredMessages extends RecyclerView.Adapter<RecyclerAdapterStarredMessages.ViewHolderStarredMessages> {
-    private List<Starredmessage> starredmessageList;
+    private List<StarredMessage> starredmessageList;
 
 
     public class ViewHolderStarredMessages extends RecyclerView.ViewHolder {
@@ -45,7 +45,7 @@ public class RecyclerAdapterStarredMessages extends RecyclerView.Adapter<Recycle
 
         }
     }
-    public RecyclerAdapterStarredMessages(List<Starredmessage> starredmessageList) {
+    public RecyclerAdapterStarredMessages(List<StarredMessage> starredmessageList) {
         this.starredmessageList = starredmessageList;
     }
     @NonNull
@@ -57,7 +57,7 @@ public class RecyclerAdapterStarredMessages extends RecyclerView.Adapter<Recycle
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderStarredMessages viewHolder, int i) {
-        Starredmessage starredmessage = starredmessageList.get(i);
+        StarredMessage starredmessage = starredmessageList.get(i);
         viewHolder. StarredMessagesMessageSender.setText(starredmessage.getStarredMessagesMessageSender());
         viewHolder.StarredMessagesMessageReceiver.setText(starredmessage.getStarredMessagesMessageReceiver());
         viewHolder.StarredMessagesDatetextView.setText(starredmessage.getStarredMessagesDatetextView());

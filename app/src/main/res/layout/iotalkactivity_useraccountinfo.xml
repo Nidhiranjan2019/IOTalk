@@ -23,7 +23,7 @@
             android:id="@+id/textViewSetupAccountUserAccountInfo"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:fontFamily="@font/chivoregular"
@@ -35,8 +35,12 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollViewUserAccount"
             android:layout_width="match_parent"
-            android:layout_height="549dp"
-            android:fillViewport="true">
+            android:layout_height="476dp"
+            android:layout_marginBottom="30dp"
+            android:fadeScrollbars="false"
+            android:fillViewport="true"
+            android:scrollbarStyle="insideInset"
+            android:scrollbarThumbVertical="@android:color/holo_purple">
 
             <LinearLayout
                 android:id="@+id/linearLayoutUserAccountInfo2"
@@ -46,12 +50,12 @@
 
                 <ImageView
                     android:id="@+id/profilePicUserAccountInfo2"
-                    android:layout_width="99dp"
+                    android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:layout_below="@+id/header_cover_image"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="160dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="25dp"
                     android:clickable="true"
                     android:elevation="5dp"
                     android:padding="20dp"
@@ -76,10 +80,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="#81818A"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
                     android:ems="10"
+                    android:ellipsize="end"
                     android:fontFamily="@font/chivoregular"
                     android:hint=" Enter Username "
                     android:inputType="textPersonName" />
@@ -89,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:fontFamily="@font/chivoregular"
                     android:text=" Enter Bio"
@@ -100,8 +106,10 @@
                     android:id="@+id/editTextBioUserAccountInfo2"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
+                    android:ellipsize="end"
+                    android:textColorHint="#81818A"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
                     android:ems="10"
@@ -114,10 +122,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:fontFamily="@font/chivoregular"
-                    android:text="Choose the languages you code in..."
+                    android:text=" Choose the languages you code in..."
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -126,7 +134,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
                     android:orientation="horizontal">
@@ -138,7 +146,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/chivoregular"
                         android:gravity="center_vertical"
-                        android:text="Choose code language "
+                        android:text=" Choose code language "
                         android:textColor="#81818A"
                         android:textSize="18sp" />
 
@@ -157,17 +165,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="176dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="-250dp"
+                    android:layout_marginTop="-295dp"
                     android:layout_marginEnd="50dp"
                     android:background="@drawable/codelanguagelistbackground"
+                    android:fadeScrollbars="false"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbarThumbVertical="@android:color/holo_purple"
                     android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imageViewWhiteDownArrowUserProfile"
-                    android:layout_width="43dp"
-                    android:layout_height="34dp"
-                    android:layout_marginStart="180dp"
-                    android:layout_marginTop="-5dp"
+                    android:layout_width="34dp"
+
+                    android:layout_height="22dp"
+                    android:layout_marginStart="195dp"
+                    android:layout_marginTop="-2dp"
                     android:background="@drawable/whitedownarrow"
                     android:visibility="gone" />
 
@@ -186,7 +198,7 @@
             android:gravity="center"
             android:hint="Choose Code language"
             android:inputType="textPersonName"
-            android:prompt="@string/type_of_doc"
+
             android:spinnerMode="dropdown"
             android:text="Proceed "
             android:textColor="#FFFFFF"

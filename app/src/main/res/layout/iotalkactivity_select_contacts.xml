@@ -25,7 +25,7 @@
             android:id="@+id/linearLayout2SelectContacts"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:orientation="horizontal"
@@ -47,18 +47,19 @@
 
             <ImageView
                 android:id="@+id/viewSearchSelectContacts"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="70dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/searchiconchatscreen" />
 
             <ImageView
                 android:id="@+id/viewSettingsSelectContacts"
-                android:layout_width="115dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/settingschatscreen" />
@@ -67,28 +68,20 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSelectContacts"
             android:layout_width="match_parent"
-            android:layout_height="560dp"
-            android:layout_marginTop="10dp" />
+            android:layout_height="503dp"
+            android:layout_marginTop="0dp" />
 
-        <View
+        <ImageView
             android:id="@+id/viewSelectContacts"
             android:layout_width="75dp"
             android:layout_height="59dp"
-            android:layout_marginStart="325dp"
+            android:layout_marginStart="310dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/gradient_signin"
+            android:src="@drawable/checkmarksignin"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="16dp" />
 
-        <ImageView
-            android:id="@+id/tickSignSelectContacts"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="340dp"
-            android:layout_marginTop="-50dp"
-            android:background="@drawable/checkmarksignin"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="16dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
