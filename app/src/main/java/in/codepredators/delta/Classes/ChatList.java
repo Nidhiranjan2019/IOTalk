@@ -1,13 +1,13 @@
 package in.codepredators.delta.Classes;
 
-public class ChatScreen {
+public class ChatList {
     public String chatListName;
     public int textViewNoOfUnseenMessages;
     public String textViewTimeOfMessage;
-    public ChatScreen() {
+    public ChatList() {
     }
 
-    public ChatScreen(String chatListName, int textViewNoOfUnseenMessages, String textViewTimeOfMessage) {
+    public ChatList(String chatListName, int textViewNoOfUnseenMessages, String textViewTimeOfMessage) {
         this.chatListName = chatListName;
         this.textViewNoOfUnseenMessages = textViewNoOfUnseenMessages;
         this.textViewTimeOfMessage = textViewTimeOfMessage;

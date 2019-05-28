@@ -1,6 +1,242 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="UTF-8"?>
 
-</LinearLayout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutChatActivity"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1ChatActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2ChatActivity"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/gradient_profileinfo"
+            android:orientation="horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="62dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/lefticon" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePicUserAccountInfo2"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:padding="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/contactpicsignin" />
+
+
+            <LinearLayout
+                android:layout_width="234dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewSelectContacts"
+                    android:layout_width="356dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/fashionfetishbold"
+                    android:gravity="center_vertical"
+                    android:text="Emma Watson"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/fashionfetishbold"
+                    android:gravity="center_vertical"
+                    android:text="Angelina, Emma, Miley, To... "
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/viewSearchSelectContacts"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/codefileicon2" />
+
+            <ImageView
+                android:id="@+id/viewSettingsSelectContacts"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/settingschatscreen" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewChatActivity1"
+            android:layout_width="match_parent"
+            android:layout_height="534dp"
+            android:layout_marginTop="0dp"
+            android:background="#FFFFFF" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3ChatActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-230dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textViewChooseCodeLanguageChatActivity"
+                android:layout_width="323dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="50dp"
+                android:background="@drawable/roundchoosecodelanguage"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="center"
+                android:text="Choose code language "
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewChatActivity"
+                android:layout_width="323dp"
+                android:layout_height="176dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/codelanguagelistbackground2"
+                android:fadeScrollbars="false"
+                android:scrollbarStyle="insideInset"
+                android:scrollbarThumbVertical="@android:color/holo_purple"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageViewWhiteDownArrowChatActivity"
+                android:layout_width="34dp"
+
+                android:layout_height="22dp"
+                android:layout_marginStart="325dp"
+                android:layout_marginTop="-2dp"
+                android:background="@drawable/whitedownarrow"
+                android:visibility="visible" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout4ChatActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:background="@drawable/sendmessagebackground"
+            android:clickable="true"
+            android:elevation="2dp"
+            android:orientation="horizontal"
+            android:outlineProvider="bounds">
+
+            <ImageView
+                android:id="@+id/imageViewMemesChatActivity"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="2"
+                app:srcCompat="@drawable/trollfaceicon" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout5ChatActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/roundsendmessage"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextEnterMessageChatActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:fontFamily="@font/chivoregular"
+                    android:hint="Write a message"
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
+                    android:text="Multiple line messages here!"
+                    android:textColor="#000000"
+                    android:textColorHint="#A59B9B" />
+
+                <ImageView
+                    android:id="@+id/imageViewPinIconChatActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="2"
+                    app:srcCompat="@drawable/attachicon" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewCodeFileChatActivity"
+                android:layout_width="87dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="-10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                app:srcCompat="@drawable/codefileicon" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBoxCodeFileChatActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginStart="-49dp"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/custom_checkbox" />
+
+
+            <ImageView
+                android:id="@+id/imageViewSendIconChatActivity"
+                android:layout_width="60dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="-10dp"
+                android:layout_weight="2"
+                app:srcCompat="@drawable/paperplanesendicon" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

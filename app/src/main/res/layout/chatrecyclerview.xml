@@ -39,7 +39,6 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/roundprofilepiccontact"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayoutFollowerInfo"
             app:layout_constraintHorizontal_bias="0.005"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -74,46 +73,30 @@
 
             <LinearLayout
                 android:id="@+id/chatListLinearLayout3"
-                android:layout_width="84dp"
+                android:layout_width="82dp"
                 android:layout_height="31dp"
                 android:layout_marginStart="40dp"
                 android:orientation="horizontal">
 
-                <View
-                    android:id="@+id/viewAttachIcon"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/roundattachiconbackground" />
-
                 <ImageView
                     android:id="@+id/imageViewAttachIcon"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginStart="-35dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="6dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/attachiconchat" />
+                    app:srcCompat="@drawable/pinicon" />
 
-                <View
-                    android:id="@+id/viewUnseenMessages"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/roundunseenmessagesbackground" />
 
                 <TextView
                     android:id="@+id/textViewNoOfUnseenMessages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="-63dp"
+                    android:layout_width="5dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginEnd="2dp"
                     android:layout_weight="1"
+                    android:background="@drawable/roundunseenmessagesbackground"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
                     android:text="1"

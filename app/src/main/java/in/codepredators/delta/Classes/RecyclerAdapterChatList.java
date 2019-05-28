@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.codepredators.delta.R;
 
 
-public class RecyclerAdapterChatScreen extends RecyclerView.Adapter<RecyclerAdapterChatScreen.ViewHolderChatScreen> {
-    private List<ChatScreen> chatpeopleList;
+public class RecyclerAdapterChatList extends RecyclerView.Adapter<RecyclerAdapterChatList.ViewHolderChatScreen> {
+    private List<ChatList> chatpeopleList;
 
 
     public class ViewHolderChatScreen extends RecyclerView.ViewHolder {
@@ -36,7 +36,7 @@ public class RecyclerAdapterChatScreen extends RecyclerView.Adapter<RecyclerAdap
 
         }
     }
-    public RecyclerAdapterChatScreen(List<ChatScreen> chatList) {
+    public RecyclerAdapterChatList(List<ChatList> chatList) {
         this.chatpeopleList = chatList;
     }
     @NonNull
@@ -48,7 +48,7 @@ public class RecyclerAdapterChatScreen extends RecyclerView.Adapter<RecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderChatScreen viewHolder, int i) {
-        ChatScreen chatpeople = chatpeopleList.get(i);
+        ChatList chatpeople = chatpeopleList.get(i);
         viewHolder. textViewTimeOfMessage.setText(chatpeople.getTextViewTimeOfMessage());
         viewHolder.chatListName.setText(chatpeople.getChatListName());
         viewHolder.textViewNoOfUnseenMessages.setText(chatpeople.getTextViewNoOfUnseenMessages());

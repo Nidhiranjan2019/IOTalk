@@ -9,14 +9,25 @@ public class User {
     private String userBio;
     private String userCountry;
     private String userProfilePic;
-    private HashMap<String,String> userLanguages;                 //Languages used by user - Selected at the time of sign in -(Java,SigninTime)
-    private HashMap<String,String> userStarredMessages;           //Starred message by user - (Message,time)
-    private HashMap<String,String> userArchives;                  //Archives message by user - (Message,time)
-    private HashMap<String,String> userCode;                      //(Code,time)
+    private HashMap<String, String> userLanguages;                 //Languages used by user - Selected at the time of sign in -(Java,SigninTime)
+    private HashMap<String, String> userStarredMessages;           //Starred message by user - (Message,time)
+    private HashMap<String, String> userArchives;                  //Archives message by user - (Message,time)
+    private HashMap<String, String> userCode;  //(Code,time)
+    //just for the tlist
+    private String userCodeList;
+
+    public String getUserCodeList() {
+        return userCodeList;
+    }
+
+    public void setUserCodeList(String userCodeList) {
+        this.userCodeList = userCodeList;
+    }
+
     private String userLastSeen;
-    private HashMap<String,String> userPersonalChats;             //(Id,time of start of chat)
-    private HashMap<String,String> userGroupChats;                // (Id,time of group formation)
-    private HashMap<String,String> userLastSeenVisibility;        //(visibility type, time of changing setting)
+    private HashMap<String, String> userPersonalChats;             //(Id,time of start of chat)
+    private HashMap<String, String> userGroupChats;                // (Id,time of group formation)
+    private HashMap<String, String> userLastSeenVisibility;        //(visibility type, time of changing setting)
 
     public User() {
     }

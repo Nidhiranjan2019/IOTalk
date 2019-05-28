@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutUserAccountInfo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout1ChatScreen"
+        android:layout_width="417dp"
+        android:layout_height="732dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2ChatScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/gradient_profileinfo"
+            android:orientation="vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout3ChatScreen"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewIOTalkChatScreen"
+                    android:layout_width="356dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/fashionfetishbold"
+                    android:gravity="center_vertical"
+                    android:text="IOTalk"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:id="@+id/viewSearchChatScreen"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/searchiconchatscreen" />
+
+                <ImageView
+                    android:id="@+id/viewSettingsChatScreen"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/settingschatscreen" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4ChatScreen"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chatsChatScreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Chats"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/archivesChatScreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Archives"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/codeChatScreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Code"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBarChatScreen"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="379dp"
+                android:layout_height="4dp"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewChatCodeArchive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionNewChat"
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="-70dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+
+            android:src="@drawable/newchaticon"
+            app:backgroundTint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.976"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.035" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,12 @@
     <item android:state_checked="true">
         <layer-list>
             <item>
-                <shape android:shape="oval">
+                <shape android:shape="rectangle">
                     <corners android:radius="1dp" />
                     <gradient
-                        android:startColor="#D1A3EE"
-                        android:centerColor="#D1A3EE"
-                        android:endColor="#D1A3EE"
+                        android:startColor="#FFFFFF"
+                        android:centerColor="#FFFFFF"
+                        android:endColor="#FFFFFF"
                         android:angle="270" />
                     <size
                         android:width="7dp"
@@ -24,7 +24,7 @@
                 <rotate
                     android:fromDegrees="45">
                     <shape android:shape="rectangle">
-                        <solid android:color="#fff"/>
+                        <solid android:color="#000000"/>
                     </shape>
                 </rotate>
             </item>
@@ -37,7 +37,7 @@
                 <rotate
                     android:fromDegrees="-45">
                     <shape android:shape="rectangle">
-                        <solid android:color="#fff"/>
+                        <solid android:color="#000000"/>
                     </shape>
                 </rotate>
             </item>
