@@ -13,7 +13,7 @@ import in.codepredators.delta.R;
 
 
 public class RecyclerAdapterSenderText2 extends RecyclerView.Adapter<RecyclerAdapterSenderText2.ViewHolderText> {
-    private List<PersonalText2> personalText2List ;
+    private List<PersonalText> personalText2List ;
 
 
     public class ViewHolderText extends RecyclerView.ViewHolder {
@@ -28,7 +28,7 @@ public class RecyclerAdapterSenderText2 extends RecyclerView.Adapter<RecyclerAda
             textViewTimeTheirMessage2 = itemView.findViewById(R.id.textViewTimeTheirMessage2);
         }
     }
-    public RecyclerAdapterSenderText2(List<PersonalText2> personalText2List) {
+    public RecyclerAdapterSenderText2(List<PersonalText> personalText2List) {
         this.personalText2List = personalText2List;
     }
     @NonNull
@@ -40,7 +40,7 @@ public class RecyclerAdapterSenderText2 extends RecyclerView.Adapter<RecyclerAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderText viewHolder, int i) {
-        PersonalText2 personalText2 = personalText2List.get(i);
+        PersonalText personalText2 = personalText2List.get(i);
         viewHolder. messagebodyTheirMessage2.setText(personalText2.getMessage());
         viewHolder.textViewTimeTheirMessage2.setText(personalText2.getTimeOfMessage());
     }
