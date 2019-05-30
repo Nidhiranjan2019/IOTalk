@@ -191,6 +191,7 @@ public class UserDetail extends AppCompatActivity {
                                 user.setUserProfilePic(downloadUrl);
                                 Log.i("image url by user",user.getUserProfilePic());
 //                            editor.putString("UserProfilePic", downloadUrl);
+
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -240,6 +241,7 @@ public class UserDetail extends AppCompatActivity {
                     Log.i("usercodeList",userCodeList.get(i));
                 }
                 Toast.makeText(UserDetail.this, "Work done", Toast.LENGTH_LONG).show();
+
             }
         });
     }

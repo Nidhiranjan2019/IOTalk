@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutUserStarredMessages"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/roundwallpaperpopup"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/codefileicon" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="center"
+                android:text="Documents"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView811"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/codefileicon" />
+
+            <TextView
+                android:id="@+id/textView185"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="center"
+                android:text="Contacts"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="127dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView811"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                app:srcCompat="@drawable/codefileicon" />
+
+            <TextView
+                android:id="@+id/textView185"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="center"
+                android:text="Camera"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="124dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="78dp"
+                android:layout_height="82dp"
+                app:srcCompat="@drawable/codefileicon" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chivoregular"
+                android:gravity="center"
+                android:text="Gallery"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

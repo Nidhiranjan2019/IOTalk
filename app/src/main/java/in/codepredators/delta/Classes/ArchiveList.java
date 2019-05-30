@@ -27,4 +27,5 @@ public class ArchiveList {
         this.textViewTimeOfMessageArchiveList = textViewTimeOfMessageArchiveList;
     }
 
+
 }
