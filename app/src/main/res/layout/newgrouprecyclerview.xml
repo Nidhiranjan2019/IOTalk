@@ -3,7 +3,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/newGroupConstraintLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp"
@@ -18,7 +17,6 @@
 
 
     <LinearLayout
-        android:id="@+id/newGroupLinearLayout1"
         android:layout_width="445dp"
         android:layout_height="53dp"
         android:layout_marginTop="8dp"
@@ -47,7 +45,6 @@
 
 
         <LinearLayout
-            android:id="@+id/newGroupLinearLayout2"
             android:layout_width="match_parent"
             android:layout_height="37dp"
             android:orientation="horizontal">
@@ -72,7 +69,6 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imageViewTickNewGroup"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="85dp"

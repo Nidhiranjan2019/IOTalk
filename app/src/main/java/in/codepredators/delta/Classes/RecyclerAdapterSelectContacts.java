@@ -14,8 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.codepredators.delta.R;
 
 
+
+
 public class RecyclerAdapterSelectContacts extends RecyclerView.Adapter<RecyclerAdapterSelectContacts.ViewHolderContacts> {
-    private List<ContactSelect> contactList;
+    private static List<User> contactList;
+    private static List<User> selectedContacts;
 
 
     public class ViewHolderContacts extends RecyclerView.ViewHolder {
@@ -35,7 +38,7 @@ public class RecyclerAdapterSelectContacts extends RecyclerView.Adapter<Recycler
 
         }
     }
-    public RecyclerAdapterSelectContacts(List<ContactSelect> contactList) {
+    public RecyclerAdapterSelectContacts(List<User> contactList) {
         this.contactList = contactList;
     }
     @NonNull
@@ -44,20 +47,51 @@ public class RecyclerAdapterSelectContacts extends RecyclerView.Adapter<Recycler
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.selectcontactsrecyclerview,viewGroup,false);
         return new ViewHolderContacts(view);
     }
-
+    public void updateList(List<User> updatedList)
+    {
+        contactList = updatedList;
+        notifyDataSetChanged();
+    }
     @Override
     public void onBindViewHolder(@NonNull ViewHolderContacts viewHolder, int i) {
-        ContactSelect contactselect = contactList.get(i);
-        viewHolder. selectContactsName.setText(contactselect.getSelectContactsName());
-        viewHolder. selectContactsPhoneNo.setText(contactselect.getSelectContactsPhoneNo());
-        viewHolder. selectContactsStatus.setText(contactselect.getSelectContactsStatus());
+        final User contactselect = contactList.get(i);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+
+
+        });
+
+        viewHolder. selectContactsName.setText(contactselect.getUserName());
+        viewHolder. selectContactsPhoneNo.setText(contactselect.getUserNumber());
+        viewHolder. selectContactsStatus.setText(contactselect.getUserBio());
+        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                setSelectedContacts(contactselect);
+                return false;
+            }
+
+            });
+
+
     }
+
 
     @Override
     public int getItemCount() {
 
         return contactList.size();
     }
+    public void setSelectedContacts(User user)
+    {
+        selectedContacts.add(user);
+    }
+
+
 
 }
 

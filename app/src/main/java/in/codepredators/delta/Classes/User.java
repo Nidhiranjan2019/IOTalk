@@ -11,23 +11,48 @@ public class User {
     private String userProfilePic;
     private HashMap<String, String> userLanguages;                 //Languages used by user - Selected at the time of sign in -(Java,SigninTime)
     private HashMap<String, String> userStarredMessages;           //Starred message by user - (Message,time)
-    private HashMap<String, String> userArchives;                  //Archives message by user - (Message,time)
-    private HashMap<String, String> userCode;  //(Code,time)
-    //just for the tlist
-    private String userCodeList;
+    private HashMap<String, String> userArchiveChats;                  //Archives message by user - (Message,time)
+    private HashMap<String, String> userCode;        //(Code(message id),time)code messages
+    private HashMap<String, String> userPinChats;
 
-    public String getUserCodeList() {
-        return userCodeList;
+    public HashMap<String, String> getUserArchiveChats() {
+        return userArchiveChats;
     }
 
-    public void setUserCodeList(String userCodeList) {
-        this.userCodeList = userCodeList;
+    public void setUserArchiveChats(HashMap<String, String> userArchiveChats) {
+        this.userArchiveChats = userArchiveChats;
+    }
+
+    public HashMap<String, String> getUserPinChats() {
+        return userPinChats;
+    }
+
+    public void setUserPinChats(HashMap<String, String> userPinChats) {
+        this.userPinChats = userPinChats;
     }
 
     private String userLastSeen;
     private HashMap<String, String> userPersonalChats;             //(Id,time of start of chat)
     private HashMap<String, String> userGroupChats;                // (Id,time of group formation)
     private HashMap<String, String> userLastSeenVisibility;        //(visibility type, time of changing setting)
+
+    public User(String UID, String userName, String userNumber, String userBio, String userCountry, String userProfilePic, HashMap<String, String> userLanguages, HashMap<String, String> userStarredMessages, HashMap<String, String> userArchives, HashMap<String, String> userCode, String userLastSeen, HashMap<String, String> userPersonalChats, HashMap<String, String> userGroupChats, HashMap<String, String> userLastSeenVisibility) {
+        this.UID = UID;
+        this.userName = userName;
+        this.userNumber = userNumber;
+        this.userBio = userBio;
+        this.userCountry = userCountry;
+        this.userProfilePic = userProfilePic;
+        this.userLanguages = userLanguages;
+        this.userStarredMessages = userStarredMessages;
+        this.userArchiveChats= userArchives;
+        this.userCode = userCode;
+        this.userLastSeen = userLastSeen;
+        this.userPersonalChats = userPersonalChats;
+        this.userGroupChats = userGroupChats;
+        this.userLastSeenVisibility = userLastSeenVisibility;
+    }
+
 
     public User() {
     }
@@ -96,13 +121,7 @@ public class User {
         this.userStarredMessages = userStarredMessages;
     }
 
-    public HashMap<String, String> getUserArchives() {
-        return userArchives;
-    }
 
-    public void setUserArchives(HashMap<String, String> userArchives) {
-        this.userArchives = userArchives;
-    }
 
     public HashMap<String, String> getUserCode() {
         return userCode;

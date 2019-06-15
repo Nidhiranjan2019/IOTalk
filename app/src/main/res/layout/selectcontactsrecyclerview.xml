@@ -3,7 +3,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/selectContactsConstraintLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp"
@@ -18,7 +17,6 @@
 
 
     <LinearLayout
-        android:id="@+id/selectContactsLinearLayout1"
         android:layout_width="445dp"
         android:layout_height="59dp"
         android:layout_marginTop="8dp"
@@ -30,7 +28,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/selectContactsLinearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -110,7 +107,6 @@
 
 
             <ImageView
-                android:id="@+id/selectContactsTickImageView"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginStart="53dp"
@@ -120,14 +116,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/selectContactslinearLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/selectContactsName"
                 android:layout_width="322dp"
                 android:layout_height="17dp"
                 android:layout_marginStart="5dp"

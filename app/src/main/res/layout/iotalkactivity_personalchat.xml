@@ -22,8 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
-            android:id="@+id/linearLayout2ChatActivity"
+            android:id="@+id/selectedChatActionBar"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:layout_marginTop="0dp"
@@ -31,7 +32,72 @@
             android:background="@drawable/gradient_profileinfo"
             android:orientation="horizontal"
             android:textColor="#FFFFFF"
-            android:textSize="30sp">
+            android:textSize="30sp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/forwardarrowicon" />
+
+            <TextView
+                android:id="@+id/selectedMessageNumber"
+                android:layout_width="39dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="45sp" />
+
+            <ImageView
+                android:id="@+id/backSelectedMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/backarrowiconuserprofile" />
+
+            <ImageView
+                android:id="@+id/selectedChatStarred"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/starstarredmessagesicon" />
+
+            <ImageView
+                android:id="@+id/deleteSelectedMessage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/delete" />
+
+            <ImageView
+                android:id="@+id/copySelectedMessage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/likesicon" />
+
+            <ImageView
+                android:id="@+id/forwardSelectedMessage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/rightarrowicon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/chatActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/gradient_profileinfo"
+            android:orientation="horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/imageViewBackChatActivity"
@@ -41,16 +107,17 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/lefticon" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/profilePicChatActivity"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
                 android:clickable="true"
                 android:elevation="5dp"
+                android:focusable="true"
                 android:padding="20dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/contactpicsignin" />
+                android:src="@drawable/contactpicsignin"
+                android:visibility="visible" />
 
 
             <LinearLayout
@@ -58,7 +125,8 @@
                 android:layout_width="234dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/textViewContactNameChatActivity"
@@ -82,14 +150,32 @@
                     android:gravity="center_vertical"
                     android:text="Angelina, Emma, Miley, To... "
                     android:textColor="#FFFFFF"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:visibility="gone" />
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextSearchChatScreen"
+                android:layout_width="261dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/fashionfetishbold"
+                android:gravity="center_vertical"
+                android:inputType="textPersonName"
+                android:text="Search..."
+                android:textColor="#F2F2F2"
+                android:textColorHint="#F2F2F2"
+                android:textSize="24sp"
+                android:backgroundTint="#FFFFFF"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imageCodeChatActivity"
                 android:layout_width="50dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
@@ -99,6 +185,7 @@
                 android:id="@+id/imageSettingsChatActivity"
                 android:layout_width="50dp"
                 android:layout_height="25dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
@@ -106,18 +193,19 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewChatActivity1"
+            android:id="@+id/recyclerViewMessagesChatActivity"
             android:layout_width="match_parent"
-            android:layout_height="534dp"
+            android:layout_height="480dp"
             android:layout_marginTop="0dp"
             android:background="#FFFFFF" />
 
         <LinearLayout
-            android:id="@+id/linearLayout4ChatActivity"
+            android:id="@+id/linearLayoutChatCodeList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-230dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
 
             <TextView
@@ -132,8 +220,9 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewChatActivity"
+                android:id="@+id/recyclerViewChatCodeList"
                 android:layout_width="323dp"
                 android:layout_height="176dp"
                 android:layout_marginStart="50dp"
@@ -145,16 +234,16 @@
                 android:visibility="visible" />
 
             <ImageView
-                android:id="@+id/imageViewWhiteDownArrowChatActivity"
-                android:layout_width="34dp"
+                android:id="@+id/imageViewWhiteDownArrowChatActivity5"
+                android:layout_width="match_parent"
 
                 android:layout_height="22dp"
                 android:layout_marginStart="325dp"
                 android:layout_marginTop="-2dp"
                 android:background="@drawable/whitedownarrow"
                 android:visibility="visible" />
-        </LinearLayout>
 
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout5ChatActivity"
@@ -196,7 +285,6 @@
                     android:hint="Write a message"
                     android:inputType="text"
                     android:paddingHorizontal="10dp"
-                    android:text="Multiple line messages here!"
                     android:textColor="#000000"
                     android:textColorHint="#A59B9B" />
 
@@ -236,8 +324,157 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="-10dp"
                 android:layout_weight="2"
+                android:clickable="false"
                 app:srcCompat="@drawable/paperplanesendicon" />
 
         </LinearLayout>
+
+
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/phoneDataSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="76dp"
+        android:background="@drawable/roundwallpaperpopup"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textViewWallpaper"
+            android:layout_width="284dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/fashionfetishbold"
+            android:gravity="center"
+            android:text="Wallpaper"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/selectDocuments"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/codefileicon" />
+
+                <TextView
+                    android:id="@+id/textViewDocuments"
+                    android:layout_width="78dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Documents"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/selectContact"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/codefileicon" />
+
+                <TextView
+                    android:id="@+id/textViewContacts"
+                    android:layout_width="78dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Contacts"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="127dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/selectCamera"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    app:srcCompat="@drawable/codefileicon" />
+
+                <TextView
+                    android:id="@+id/textViewCamera"
+                    android:layout_width="78dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Camera"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/selectImageGallery"
+                    android:layout_width="78dp"
+                    android:layout_height="82dp"
+                    app:srcCompat="@drawable/codefileicon" />
+
+                <TextView
+                    android:id="@+id/textViewGallery"
+                    android:layout_width="78dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:text="Gallery"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relativeLayoutGroupMessage"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
@@ -9,7 +8,6 @@
     android:paddingRight="60dp">
 
     <LinearLayout
-        android:id="@+id/linearLayout1GroupMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/their_message1"
@@ -23,7 +21,6 @@
             android:background="#7589F5" />
 
         <LinearLayout
-            android:id="@+id/linearLayout2GroupMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,7 +50,6 @@
                 android:textSize="14sp" />
 
             <LinearLayout
-                android:id="@+id/linearLayout3GroupMessage"
                 android:layout_width="167dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="150dp"
@@ -61,7 +57,6 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageViewStarGroupMessage"
                     android:layout_width="1dp"
                     android:layout_height="15dp"
                     android:layout_marginStart="90dp"

@@ -40,7 +40,7 @@ public class Registration extends AppCompatActivity
     private ImageView icon;
     private LinearLayout textBox;
     private TextView warning ;
-    int a = 0;
+    int userLogged = 0;
 
 
 
@@ -50,12 +50,16 @@ public class Registration extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.iotalkactivity_registration);
+        Intent intent = new Intent(Registration.this , NewChatButton.class);
+        startActivity(intent);
+        finish();
         FirebaseApp.initializeApp(this);
+
         textBox = findViewById(R.id.linearLayout2RegistrationFailed);
         icon = findViewById(R.id.viewRegistrationFailed);
         warning = findViewById(R.id.textViewOtpFailedRegistrationFailed);
         orText = findViewById(R.id.textView8);
-        mCode =findViewById(R.id.editTextPhoneNoRegistrationFailed);
+        mCode =findViewById(R.id.editTextPhoneNoRegistrationFailed2);
         mRegistration = findViewById(R.id.textViewRegistrationRegistrationFailed);
         flag = findViewById(R.id.viewCountryFlagRegistrationFailed);
         mText = findViewById(R.id.textViewEnterRegistrationFailed);
@@ -96,6 +100,8 @@ public class Registration extends AppCompatActivity
                 mText.setText("Enter the OTP sent to your mobile number.");
                 mRegistration.setText("Enter OTP");
                 flag.setVisibility(View.GONE);
+                mCode.setVisibility(View.VISIBLE);
+                mPhoneNumber.setVisibility(View.GONE);
 
                 if(mVerificationId!= null)
                 {
@@ -108,11 +114,28 @@ public class Registration extends AppCompatActivity
         });
         mLogin.setOnClickListener(new View.OnClickListener() {
 
+
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Registration.this,Registration.class);
-                startActivity(intent);
-                finish();
+                userLogged = 1;
+
+                mContinue.setText("Verify");
+                orText.setVisibility(View.GONE);
+                mLogin.setVisibility(View.GONE);
+//                icon.setImageResource();
+                mText.setText("Enter the OTP sent to your mobile number.");
+                mRegistration.setText("Enter OTP");
+                flag.setVisibility(View.GONE);
+                mCode.setVisibility(View.VISIBLE);
+                mPhoneNumber.setVisibility(View.GONE);
+
+                if(mVerificationId!= null)
+                {
+                    Log.i("DEBUG", mCode.getText().toString());
+                    verifyPhoneNumberWithCode(mVerificationId,mCode.getText().toString());
+                }
+                else
+                    startPhoneNumberVerification();
 
 
             }
@@ -166,9 +189,15 @@ public class Registration extends AppCompatActivity
 
                 @Override
                 public void onClick(View v) {
+                    if(userLogged==1)
+                    {
+                        startActivity(new Intent(getApplicationContext(), ChatList.class));
+                        finish();
+                        return;                    }
+                    else{
                     startActivity(new Intent(getApplicationContext(), UserDetail.class));
                     finish();
-                    return;
+                    return;}
                 }
             });
         }
@@ -185,6 +214,7 @@ public class Registration extends AppCompatActivity
                 TimeUnit.SECONDS,
                 this,
                 mCallbacks);
+
         mPhoneNumber.setText("");
     }
 

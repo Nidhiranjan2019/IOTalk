@@ -1,5 +1,6 @@
 package in.codepredators.delta.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import in.codepredators.delta.R;
 
 public class ChatList extends AppCompatActivity {
@@ -19,7 +22,7 @@ public class ChatList extends AppCompatActivity {
     private TextView chats;
     private TextView archives;
     private TextView code;
-    private Button newChatButton;
+    private FloatingActionButton newChatButton;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,16 @@ public class ChatList extends AppCompatActivity {
             }
         });
 
+        newChatButton.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(ChatList.this , NewChatButton.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 

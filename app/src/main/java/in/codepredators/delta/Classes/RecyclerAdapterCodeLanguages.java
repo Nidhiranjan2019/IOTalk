@@ -47,7 +47,7 @@ public class RecyclerAdapterCodeLanguages extends RecyclerView.Adapter<RecyclerA
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserDetail.usercodelistfunc(position);
+                UserDetail.usercodelistfunc(languageList.get(position).getCodeLanguageEnter());
                 Log.i("item clicked","yes");
             }
         });

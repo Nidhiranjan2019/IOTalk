@@ -51,7 +51,7 @@ public class UserDetail extends AppCompatActivity {
     EditText userBio;
     TextView proceedUserAccount;
     String downloadUrl;
-    HashMap<String,String> codeHashmap;
+    static HashMap<String,String> codeHashmap;
     RecyclerView coderecycler;
     List<Codelanguages> codeList;
     TextView openrecyclerview;
@@ -75,10 +75,12 @@ public class UserDetail extends AppCompatActivity {
     ImageView imageView;
     int RESULT_LOAD_IMAGE =1;
 
-    public static void usercodelistfunc(int i)
+    public static void usercodelistfunc(String i)
     {
+
+        userCodeList.add(i);
+        codeHashmap.put(userCodeList.get(a),"Raj");
         a=a+1;
-        userCodeList.add(codename[i]);
     }
 
     @Override
@@ -111,10 +113,6 @@ public class UserDetail extends AppCompatActivity {
         openrecyclerview  = findViewById(R.id.textViewSelectCodeLanguageUserProfile);
         codeHashmap = new HashMap<>();
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        for(int i =0;i<a;i++)
-        {
-            codeHashmap.put(userCodeList.get(i).toString(),"Raj");
-        }
 //hash map value taking
         for(int i=0;i<a;i++)
         {
@@ -168,7 +166,6 @@ public class UserDetail extends AppCompatActivity {
         user.setUserName(sharedPreferences.getString("UserName","NOTFOUND"));
         user.setUserBio(sharedPreferences.getString("UserBio","NOTFOUND"));
         user.setUserProfilePic(sharedPreferences.getString("UserProfilePic","NOTFOUND"));
-        user.setUserCodeList(sharedPreferences.getString("UserCodeLanguage","NOTFOUND"));
         user.setUserNumber(sharedPreferences.getString("UserNumber","NOTFOUND"));
 //hash map shared preferences is remaining
 
@@ -191,7 +188,6 @@ public class UserDetail extends AppCompatActivity {
                                 user.setUserProfilePic(downloadUrl);
                                 Log.i("image url by user",user.getUserProfilePic());
 //                            editor.putString("UserProfilePic", downloadUrl);
-
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -217,7 +213,7 @@ public class UserDetail extends AppCompatActivity {
                 editor.putString("UserBio", user.getUserBio());
                 editor.putString("UID", UID);
                 editor.putString("UserProfilePic", user.getUserProfilePic());
-                editor.putString("UserCodeLanguage","code name");
+                editor.putString("UserCodeList","code name");
                 editor.putString("UserPhoneNumber",user.getUserNumber());
 //            editor.putString("UserProfilePic", downloadUrl);
 //            editor.putStringSet("UserCodeList",  codeHashmap);
@@ -228,11 +224,9 @@ public class UserDetail extends AppCompatActivity {
 
                 FirebaseDatabase.getInstance().getReference().child("users").child(UID).setValue(user);
 
+                //  FirebaseDatabase.getInstance().getReference().child("users").child(UID).child("userCodeList").setValue(codeHashmap);
+                //  FirebaseDatabase.getInstance().getReference().child("users").child(UID).child("userCodeList").setValue(userCodeList);
 
-                for(int i=0;i<a;i++)
-                {
-                    FirebaseDatabase.getInstance().getReference().child("users").child(UID).child("UserCodeLanguage").setValue(codeHashmap.get(i));
-                }
 
 
                 coderecycler.setVisibility(View.GONE);
@@ -241,7 +235,9 @@ public class UserDetail extends AppCompatActivity {
                     Log.i("usercodeList",userCodeList.get(i));
                 }
                 Toast.makeText(UserDetail.this, "Work done", Toast.LENGTH_LONG).show();
-
+                Intent intent = new Intent(UserDetail.this , ChatList.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

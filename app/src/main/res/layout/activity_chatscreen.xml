@@ -3,14 +3,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayoutUserAccountInfo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
 
     <LinearLayout
-        android:id="@+id/linearLayout1ChatScreen"
         android:layout_width="417dp"
         android:layout_height="732dp"
         android:layout_marginStart="8dp"
@@ -25,7 +23,6 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:id="@+id/linearLayout2ChatScreen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
@@ -37,13 +34,11 @@
 
 
             <LinearLayout
-                android:id="@+id/linearLayout3ChatScreen"
                 android:layout_width="match_parent"
                 android:layout_height="92dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textViewIOTalkChatScreen"
                     android:layout_width="356dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="30dp"
@@ -75,7 +70,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout4ChatScreen"
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:orientation="horizontal">
@@ -116,7 +110,6 @@
             </LinearLayout>
 
             <ProgressBar
-                android:id="@+id/progressBarChatScreen"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="379dp"
                 android:layout_height="4dp"
@@ -128,7 +121,6 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewChatCodeArchive"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp" />

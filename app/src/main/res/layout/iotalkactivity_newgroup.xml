@@ -3,27 +3,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayoutNewGroup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
     <LinearLayout
-        android:id="@+id/linearLayout1NewGroup"
         android:layout_width="413dp"
         android:layout_height="732dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:id="@+id/linearLayout2NewGroup"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginTop="35dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:orientation="horizontal"
@@ -32,36 +30,52 @@
 
             <TextView
                 android:id="@+id/textViewNewGroup"
-                android:layout_width="336dp"
+                android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="80dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/fashionfetishbold"
                 android:gravity="center_vertical"
                 android:text="New Group"
                 android:textColor="#FFFFFF"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/searchBox"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="80dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/fashionfetishbold"
+                android:gravity="center_vertical"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:visibility="gone"
+                />
 
             <ImageView
                 android:id="@+id/viewSearchNewGroup"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginStart="-120dp"
                 android:layout_weight="1"
                 android:background="@drawable/searchiconchatscreen" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout3NewGroup"
             android:layout_width="match_parent"
             android:layout_height="98dp"
             android:orientation="horizontal">
 
             <View
-                android:id="@+id/viewProfilePicNewGroup"
                 android:layout_width="140dp"
                 android:layout_height="65dp"
                 android:layout_marginStart="15dp"
@@ -79,7 +93,6 @@
                 android:src="@drawable/cameranewgroupicon" />
 
             <LinearLayout
-                android:id="@+id/linearLayout4NewGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
@@ -95,14 +108,11 @@
                     android:ems="10"
                     android:fontFamily="@font/fashionfetishbold"
                     android:hint="Type group subject here..."
-                    android:ellipsize="end"
-                    android:textColorHint="#9F9F9F"
                     android:inputType="textPersonName"
                     android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/textView2NewGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="  Provide a group subject and optional group icon"
@@ -122,44 +132,35 @@
             android:fontFamily="@font/fashionfetishbold"
             android:foregroundGravity="center_vertical"
             android:hint="Group description (optional)"
-            android:ellipsize="end"
-            android:textColorHint="#9F9F9F"
             android:inputType="textPersonName"
             android:textColor="#000000"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView3NewGroup"
             android:layout_width="match_parent"
             android:layout_height="23dp"
             android:layout_marginStart="14dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/fashionfetishbold"
             android:gravity="center_vertical"
-            android:text="Choose participants"
+            android:text=" Choose participants"
             android:textColor="#9F9F9F"
             android:textSize="12sp" />
+
+        <View
+            android:id="@+id/formGroupButton"
+            android:layout_width="82dp"
+            android:layout_height="58dp"
+            android:background="@drawable/chatroomchatscreen"
+            android:clickable="true" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewNewGroup"
             android:layout_width="match_parent"
-            android:layout_height="318dp"
+            android:layout_height="352dp"
             android:layout_marginStart="14dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="14dp" />
-
-
-        <ImageView
-            android:id="@+id/tickSignNewGroup"
-            android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="310dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/gradient_signin"
-            android:src="@drawable/checkmarksignin"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="16dp" />
 
     </LinearLayout>
 

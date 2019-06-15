@@ -39,8 +39,18 @@
             <LinearLayout
                 android:id="@+id/linearLayout3ChatScreen"
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
+                android:layout_height="76dp"
                 android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/imageViewBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/backarrowiconuserprofile" />
 
                 <TextView
                     android:id="@+id/textViewIOTalkChatScreen"
@@ -53,7 +63,26 @@
                     android:gravity="center_vertical"
                     android:text="IOTalk"
                     android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/editTextSearchChatScreen"
+                    android:layout_width="350dp"
+                    android:layout_height="57dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:fontFamily="@font/fashionfetishbold"
+                    android:gravity="center_vertical"
+                    android:inputType="textPersonName"
+                    android:text="Search..."
+                    android:textColor="#F2F2F2"
+                    android:textColorHint="#F2F2F2"
+                    android:backgroundTint="#FFFFFF"
+                    android:textSize="24sp"
+                    android:visibility="gone" />
+
 
                 <ImageView
                     android:id="@+id/viewSearchChatScreen"
@@ -62,7 +91,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/searchiconchatscreen" />
+                    android:background="@drawable/searchiconchatscreen"
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/viewSettingsChatScreen"
@@ -71,7 +101,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/settingschatscreen" />
+                    android:background="@drawable/settingschatscreen"
+                    android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -114,16 +145,6 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-
-            <ProgressBar
-                android:id="@+id/progressBarChatScreen"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="379dp"
-                android:layout_height="4dp"
-                android:layout_centerHorizontal="true"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="0" />
 
         </LinearLayout>
 
