@@ -3,11 +3,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
     <LinearLayout
+        android:id="@+id/linearLayoutUserAccountInfo"
         android:layout_width="413dp"
         android:layout_height="732dp"
         android:orientation="vertical"
@@ -18,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/textViewSetupAccountUserAccountInfo"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:layout_marginTop="35dp"
@@ -30,6 +33,7 @@
             android:textSize="30sp" />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollViewUserAccount"
             android:layout_width="match_parent"
             android:layout_height="476dp"
             android:layout_marginBottom="30dp"
@@ -39,25 +43,27 @@
             android:scrollbarThumbVertical="@android:color/holo_purple">
 
             <LinearLayout
+                android:id="@+id/linearLayoutUserAccountInfo2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profilePicUserAccountInfo2"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
                     android:layout_below="@+id/header_cover_image"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="130dp"
+                    android:layout_marginStart="127dp"
                     android:layout_marginTop="25dp"
                     android:clickable="true"
                     android:elevation="5dp"
                     android:padding="20dp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/contactpicsignin" />
+                    android:src="@drawable/contactpicsignin" />
 
                 <TextView
+                    android:id="@+id/textViewUserAccountInfo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -79,12 +85,14 @@
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
                     android:ems="10"
+                    android:textColor="#000000"
                     android:ellipsize="end"
                     android:fontFamily="@font/chivoregular"
                     android:hint=" Enter Username "
                     android:inputType="textPersonName" />
 
                 <TextView
+                    android:id="@+id/textView2UserAccountInfo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -106,11 +114,13 @@
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
                     android:ems="10"
+                    android:textColor="#000000"
                     android:fontFamily="@font/chivoregular"
                     android:hint=" Hello there! "
                     android:inputType="text" />
 
                 <TextView
+                    android:id="@+id/textView3ChooseLanguage2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -122,6 +132,7 @@
                     android:textSize="18sp" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout3UserProfile"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="20dp"
@@ -142,6 +153,7 @@
                         android:textSize="18sp" />
 
                     <ImageView
+                        android:id="@+id/imageViewUpArrowUserProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="13dp"
                         android:layout_marginTop="20dp"
@@ -155,7 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="176dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="-295dp"
+                    android:layout_marginTop="-250dp"
                     android:layout_marginEnd="50dp"
                     android:background="@drawable/codelanguagelistbackground"
                     android:fadeScrollbars="false"
@@ -164,6 +176,7 @@
                     android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/imageViewWhiteDownArrowUserProfile"
                     android:layout_width="34dp"
 
                     android:layout_height="22dp"

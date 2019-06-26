@@ -209,6 +209,8 @@ public class Chat extends AppCompatActivity {
     }
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.iotalkactivity_personalchat);
         Log.i("abcdefg","ChatLine190");
@@ -225,7 +227,7 @@ public class Chat extends AppCompatActivity {
         codeListLinearLayout = findViewById(R.id.linearLayoutChatCodeList);
         phoneGallery = findViewById(R.id.selectImageGallery);
         phoneCamera = findViewById(R.id.selectCamera);
-        phoneDocument = findViewById(R.id.selectDocument);
+        phoneDocument = findViewById(R.id.selectDocuments);
         pinIconLayout = findViewById(R.id.phoneDataSelection);
         chatActionBar = findViewById(R.id.chatActionBar);
         selectedChatActionBar = findViewById(R.id.selectedChatActionBar);

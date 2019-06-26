@@ -50,7 +50,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:visibility="gone"
-                    app:srcCompat="@drawable/backarrowiconuserprofile" />
+                    app:srcCompat="@drawable/backarrow" />
 
                 <TextView
                     android:id="@+id/textViewIOTalkChatScreen"
@@ -76,7 +76,7 @@
                     android:fontFamily="@font/fashionfetishbold"
                     android:gravity="center_vertical"
                     android:inputType="textPersonName"
-                    android:text="Search..."
+                    android:hint="Search..."
                     android:textColor="#F2F2F2"
                     android:textColorHint="#F2F2F2"
                     android:backgroundTint="#FFFFFF"
@@ -105,54 +105,58 @@
                     android:visibility="visible" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout4ChatScreen"
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:tabSelectedTextColor="#FFFFFF"
+                app:tabTextColor="#FFFFFF"
+           >
 
-                <TextView
-                    android:id="@+id/chatsChatScreen"
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabChat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Chat"
                     android:layout_weight="1"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
-                    android:text="Chats"
                     android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"/>
 
-                <TextView
-                    android:id="@+id/archivesChatScreen"
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabArchives"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/chivoregular"
-                    android:gravity="center"
                     android:text="Archives"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/codeChatScreen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
-                    android:text="Code"
                     android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"/>
 
-            </LinearLayout>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Code"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/chivoregular"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"/>
+            </com.google.android.material.tabs.TabLayout>
+
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewChatCodeArchive"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpagerChatList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp" />
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionNewChat"
@@ -162,12 +166,13 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="350dp"
-            android:layout_marginTop="-70dp"
+            android:layout_marginStart="335dp"
+            android:layout_marginTop="-150dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:src="@drawable/newchaticon"
             app:backgroundTint="#ffffff"
+            app:fabCustomSize="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.976"
@@ -176,6 +181,6 @@
             app:layout_constraintVertical_bias="0.035"
             app:maxImageSize="56dp" />
 
-    </LinearLayout>
+</LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

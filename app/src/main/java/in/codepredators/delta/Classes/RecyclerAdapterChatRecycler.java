@@ -66,7 +66,7 @@ public class RecyclerAdapterChatRecycler extends RecyclerView.Adapter<RecyclerAd
         public TextView rMSenderName;
         public TextView rMType;
         public ImageView rMPic;
-        public ImageView rMCancel;
+//        public ImageView rMCancel;
         public LinearLayout contactMessage; //cM
         public ImageView cMPic;
         public TextView cMText;
@@ -94,7 +94,7 @@ public class RecyclerAdapterChatRecycler extends RecyclerView.Adapter<RecyclerAd
             rMSenderName = itemView.findViewById(R.id.replyMessageSenderName);
             rMType = itemView.findViewById(R.id.replyMessageType);
             rMPic = itemView.findViewById(R.id.replyMessagePic);
-            rMCancel = itemView.findViewById(R.id.replyMessageCancel);
+//            rMCancel = itemView.findViewById(R.id.replyMessageCancel);
             contactMessage = itemView.findViewById(R.id.contactMessage);
             cMPic = itemView.findViewById(R.id.contactMessagePic);
             cMText = itemView.findViewById(R.id.contactMessageText);
@@ -306,7 +306,7 @@ public class RecyclerAdapterChatRecycler extends RecyclerView.Adapter<RecyclerAd
                     Log.i("FileDownloading","outside[null]condition");
                 }
                 viewHolder.contactMessage.setVisibility(View.VISIBLE);
-                viewHolder.cMPic.setImageResource(R.drawable.star);
+                viewHolder.cMPic.setImageResource(R.drawable.tickicon);
                 viewHolder.cMText.setText("Raj Kothari");
                 if (messageInfo.getMessageType().charAt(0) == '0')
                 {

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
@@ -42,10 +43,12 @@ public class NewChatButton extends AppCompatActivity {
     private ImageView optionsIcon;
     private ImageView tickIcon;
     static List<User> phoneDetails;
-    static List<User> selectedcontacts = new ArrayList<>();
+    static List<User> selectedContacts = new ArrayList<>();
     static List<User> finalList;
     private RecyclerView recyclerView;
     static RecyclerAdapterSelectContacts Object;
+
+
 
 
     @Override
@@ -72,7 +75,7 @@ public class NewChatButton extends AppCompatActivity {
 
         displayContacts();
 
-        HashMap<String, String> map = new HashMap<>();
+//        HashMap<String, String> map = new HashMap<>();
 
         // put every value of list to Map
 //        for (User user : phoneDetails) {
@@ -80,9 +83,41 @@ public class NewChatButton extends AppCompatActivity {
 //        }
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        Object = new RecyclerAdapterSelectContacts(phoneDetails);
+        Object = new RecyclerAdapterSelectContacts(this , phoneDetails);
         //recyclerViewNewGroup.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(Object);
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference firebaseDatabaseUserRef = rootRef.child("users");
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                finalList = new ArrayList<>();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String firebaseDatabasePhoneNumber = ds.child("userNumber").getValue(String.class);
+//                    Log.i("databasephonenumber", firebaseDatabasePhoneNumber);
+
+                    for (User user : phoneDetails) {
+
+                        if (user.getUserNumber() != null && user.getUserNumber().equals(firebaseDatabasePhoneNumber)) {
+//                            Log.i("datasnapshotuserphone", user.getUserNumber());
+                            user.setUID(ds.child("uid").getValue(String.class));
+//                            Log.i("useruid", user.getUID());
+                            user.setUserProfilePic(ds.child("userProfilePic").getValue(String.class));
+//                            Log.i("userPofilepic", user.getUserProfilePic());
+                            finalList.add(user);
+                        }
+                    }
+
+                }
+
+                Object.updateList(finalList);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        firebaseDatabaseUserRef.addListenerForSingleValueEvent(valueEventListener);
 
 
     }
@@ -128,39 +163,36 @@ public class NewChatButton extends AppCompatActivity {
 
 //        return phoneDetails;
 
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference firebaseDatabaseUserRef = rootRef.child("users");
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                finalList = new ArrayList<>();
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String firebaseDatabasePhoneNumber = ds.child("userNumber").getValue(String.class);
-                    Log.i("databasephonenumber", firebaseDatabasePhoneNumber);
 
-                    for (User user : phoneDetails) {
-                        i[0]++;
-                        Log.i("insidesnapfor", String.valueOf(i[0]));
-                        if (user.getUserNumber() != null && user.getUserNumber().equals(firebaseDatabasePhoneNumber)) {
-                            Log.i("datasnapshotuserphone", user.getUserNumber());
-                            user.setUID(ds.child("uid").getValue(String.class));
-                            Log.i("useruid", user.getUID());
-                            user.setUserProfilePic(ds.child("userProfilePic").getValue(String.class));
-                            Log.i("userPofilepic", user.getUserProfilePic());
-                            finalList.add(user);
-                        }
-                    }
+    }
+    public void callChatActivity(User user)
+    {
+        Intent intent = new Intent(NewChatButton.this , Chat.class);
+        intent.putExtra("USER_OBJECT", (Parcelable) user);
+        startActivity(intent);
+        finish();
+    }
+    public static void selectedMessage(User user,int a)
+    {
+//        if(a==1)
+//        {
+//            selectedChatActionBar.setVisibility(View.VISIBLE);
+//            chatActionBar.setVisibility(View.GONE);
+//        }
+//        if(a==0)
+//        {
+//            selectedChatActionBar.setVisibility(View.GONE);
+//            chatActionBar.setVisibility(View.VISIBLE);
+//        }
 
-                }
-
-                Object.updateList(finalList);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-        firebaseDatabaseUserRef.addListenerForSingleValueEvent(valueEventListener);
+        if(selectedContacts.size()>a)
+        {
+            selectedContacts.remove(user);
+        }
+        else
+        {
+            selectedContacts.add(user);
+        }
     }
 
 

@@ -16,6 +16,25 @@ import in.codepredators.delta.R;
 public class RecyclerAdapterChatList extends RecyclerView.Adapter<RecyclerAdapterChatList.ViewHolderChatScreen> {
     private List<ChatList> chatpeopleList;
 
+//    public void filter(String text) {
+//        text = text.toLowerCase();
+//        chatpeopleList.clear();
+//        if (text.length() == 0) {
+//            worldpopulationlist.addAll(arraylist);
+//        }
+//        else
+//        {
+//            for (WorldPopulation wp : arraylist)
+//            {
+//                if (wp.getCountry().toLowerCase().contains(charText))
+//                {
+//                    worldpopulationlist.add(wp);
+//                }
+//            }
+//        }
+//        notifyDataSetChanged();
+//    }
+
 
     public class ViewHolderChatScreen extends RecyclerView.ViewHolder {
         public TextView textViewTimeOfMessage;
@@ -36,29 +55,31 @@ public class RecyclerAdapterChatList extends RecyclerView.Adapter<RecyclerAdapte
 
         }
     }
-    public RecyclerAdapterChatList(List<ChatList> chatList) {
+    public RecyclerAdapterChatList(List<ChatList> chatList)
+    {
         this.chatpeopleList = chatList;
     }
     @NonNull
     @Override
     public ViewHolderChatScreen onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+//        if
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.chatrecyclerview,viewGroup,false);
         return new ViewHolderChatScreen(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderChatScreen viewHolder, int i) {
-        ChatList chatpeople = chatpeopleList.get(i);
-        viewHolder. textViewTimeOfMessage.setText(chatpeople.getTextViewTimeOfMessage());
-        viewHolder.chatListName.setText(chatpeople.getChatListName());
-        viewHolder.textViewNoOfUnseenMessages.setText(chatpeople.getTextViewNoOfUnseenMessages());
+//        ChatList chatpeople = chatpeopleList.get(i);
+//        viewHolder. textViewTimeOfMessage.setText(chatpeople.getTextViewTimeOfMessage());
+//        viewHolder.chatListName.setText(chatpeople.getChatListName());
+//        viewHolder.textViewNoOfUnseenMessages.setText(chatpeople.getTextViewNoOfUnseenMessages());
 
     }
 
     @Override
     public int getItemCount() {
-
-        return chatpeopleList.size();
+return 1;
+//        return chatpeopleList.size();
     }
 
 }

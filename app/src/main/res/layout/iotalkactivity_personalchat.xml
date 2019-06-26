@@ -37,54 +37,64 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="30dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="-5dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/forwardarrowicon" />
+                app:srcCompat="@drawable/backarrow" />
 
             <TextView
                 android:id="@+id/selectedMessageNumber"
-                android:layout_width="39dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/chivoregular"
                 android:gravity="center"
                 android:text="1"
-                android:textSize="45sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/backSelectedMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/backarrowiconuserprofile" />
+                app:srcCompat="@drawable/replyarrow" />
 
             <ImageView
                 android:id="@+id/selectedChatStarred"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/starstarredmessagesicon" />
+                app:srcCompat="@drawable/whitestar" />
 
             <ImageView
                 android:id="@+id/deleteSelectedMessage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/delete" />
+                app:srcCompat="@drawable/trash" />
 
             <ImageView
                 android:id="@+id/copySelectedMessage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/likesicon" />
+                app:srcCompat="@drawable/copyicon" />
 
             <ImageView
                 android:id="@+id/forwardSelectedMessage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rightarrowicon" />
+                app:srcCompat="@drawable/forwardarrow" />
         </LinearLayout>
 
         <LinearLayout
@@ -102,8 +112,8 @@
             <ImageView
                 android:id="@+id/imageViewBackChatActivity"
                 android:layout_width="62dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/lefticon" />
 
@@ -173,7 +183,7 @@
 
             <ImageView
                 android:id="@+id/imageCodeChatActivity"
-                android:layout_width="50dp"
+                android:layout_width="35dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
@@ -183,9 +193,8 @@
 
             <ImageView
                 android:id="@+id/imageSettingsChatActivity"
-                android:layout_width="50dp"
+                android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
@@ -195,7 +204,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMessagesChatActivity"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="544dp"
             android:layout_marginTop="0dp"
             android:background="#FFFFFF" />
 
@@ -205,7 +214,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-230dp"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
 
 
             <TextView
@@ -257,17 +270,18 @@
 
             <ImageView
                 android:id="@+id/imageViewMemesChatActivity"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
+                android:layout_width="55dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="2"
                 app:srcCompat="@drawable/trollfaceicon" />
 
             <LinearLayout
                 android:id="@+id/linearLayout6ChatActivity"
-                android:layout_width="wrap_content"
+                android:layout_width="265dp"
                 android:layout_height="45dp"
+                android:layout_marginStart="-10dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="2"
@@ -300,9 +314,8 @@
 
             <ImageView
                 android:id="@+id/imageViewCodeFileChatActivity"
-                android:layout_width="87dp"
+                android:layout_width="55dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="-10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="2"
                 app:srcCompat="@drawable/codefileicon" />
@@ -311,17 +324,17 @@
                 android:id="@+id/checkBoxCodeFileChatActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
-                android:layout_marginStart="-49dp"
+                android:layout_marginStart="-43dp"
                 android:layout_marginTop="19dp"
                 android:background="@drawable/custom_checkbox" />
 
 
             <ImageView
                 android:id="@+id/imageViewSendIconChatActivity"
-                android:layout_width="60dp"
-                android:layout_height="47dp"
+                android:layout_width="55dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="-10dp"
                 android:layout_weight="2"
                 android:clickable="false"
@@ -334,9 +347,9 @@
 
     <LinearLayout
         android:id="@+id/phoneDataSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_width="281dp"
+        android:layout_height="237dp"
+        android:layout_marginStart="65dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="76dp"
         android:background="@drawable/roundwallpaperpopup"
@@ -356,14 +369,16 @@
             android:gravity="center"
             android:text="Wallpaper"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:visibility="gone" />
 
 
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:visibility="visible">
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -374,14 +389,14 @@
 
                 <ImageView
                     android:id="@+id/selectDocuments"
-                    android:layout_width="78dp"
-                    android:layout_height="78dp"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/codefileicon" />
+                    app:srcCompat="@drawable/document" />
 
                 <TextView
                     android:id="@+id/textViewDocuments"
-                    android:layout_width="78dp"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
@@ -399,14 +414,14 @@
 
                 <ImageView
                     android:id="@+id/selectContact"
-                    android:layout_width="78dp"
-                    android:layout_height="78dp"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/codefileicon" />
+                    app:srcCompat="@drawable/contact" />
 
                 <TextView
                     android:id="@+id/textViewContacts"
-                    android:layout_width="78dp"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
@@ -433,13 +448,13 @@
 
                 <ImageView
                     android:id="@+id/selectCamera"
-                    android:layout_width="78dp"
-                    android:layout_height="78dp"
-                    app:srcCompat="@drawable/codefileicon" />
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    app:srcCompat="@drawable/camera" />
 
                 <TextView
                     android:id="@+id/textViewCamera"
-                    android:layout_width="78dp"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
@@ -453,18 +468,18 @@
                 android:layout_width="122dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/selectImageGallery"
-                    android:layout_width="78dp"
-                    android:layout_height="82dp"
-                    app:srcCompat="@drawable/codefileicon" />
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    app:srcCompat="@drawable/gallery" />
 
                 <TextView
                     android:id="@+id/textViewGallery"
-                    android:layout_width="78dp"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"

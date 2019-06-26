@@ -3,10 +3,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutSelectContacts"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout1SelectContacts"
         android:layout_width="415dp"
         android:layout_height="735dp"
         android:layout_marginStart="8dp"
@@ -20,9 +22,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout2SelectContacts"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:layout_marginTop="35dp"
             android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:orientation="horizontal"
@@ -30,6 +32,7 @@
             android:textSize="30sp">
 
             <TextView
+                android:id="@+id/textViewSelectContacts"
                 android:layout_width="356dp"
                 android:layout_height="43dp"
                 android:layout_marginStart="10dp"
@@ -43,7 +46,7 @@
 
             <ImageView
                 android:id="@+id/viewSearchSelectContacts"
-                android:layout_width="70dp"
+                android:layout_width="60dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="15dp"
@@ -53,7 +56,7 @@
 
             <ImageView
                 android:id="@+id/viewSettingsSelectContacts"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
@@ -69,8 +72,8 @@
 
         <ImageView
             android:id="@+id/viewSelectContacts"
-            android:layout_width="75dp"
-            android:layout_height="59dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
             android:layout_marginStart="310dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/gradient_signin"

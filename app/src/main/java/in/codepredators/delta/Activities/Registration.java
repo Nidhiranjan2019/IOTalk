@@ -50,7 +50,7 @@ public class Registration extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.iotalkactivity_registration);
-        Intent intent = new Intent(Registration.this , NewChatButton.class);
+        Intent intent = new Intent(Registration.this , in.codepredators.delta.Activities.ChatList.class);
         startActivity(intent);
         finish();
         FirebaseApp.initializeApp(this);
@@ -59,7 +59,7 @@ public class Registration extends AppCompatActivity
         icon = findViewById(R.id.viewRegistrationFailed);
         warning = findViewById(R.id.textViewOtpFailedRegistrationFailed);
         orText = findViewById(R.id.textView8);
-        mCode =findViewById(R.id.editTextPhoneNoRegistrationFailed2);
+        mCode =findViewById(R.id.editTextPhoneNoRegistrationFailed);
         mRegistration = findViewById(R.id.textViewRegistrationRegistrationFailed);
         flag = findViewById(R.id.viewCountryFlagRegistrationFailed);
         mText = findViewById(R.id.textViewEnterRegistrationFailed);

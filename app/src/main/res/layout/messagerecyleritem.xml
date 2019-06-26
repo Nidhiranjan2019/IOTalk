@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundColor"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="#00000000">
 
     <LinearLayout
         android:id="@+id/messageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="end"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,12 +29,13 @@
             android:gravity="center"
             android:text="Today"
             android:textColor="#ffffff"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/messageLinearLayoutContainer"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/tickicon"
             android:orientation="horizontal">
 
             <View
@@ -41,10 +43,10 @@
                 android:layout_width="5dp"
                 android:layout_height="match_parent"
                 android:background="#621515"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -58,13 +60,14 @@
                     android:text="Raj Kothari"
                     android:textColor="#ffffff"
                     android:textSize="16sp"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
                 <RelativeLayout
                     android:id="@+id/replyMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="visible">
+                    android:background="@drawable/tickicon"
+                    android:visibility="gone">
 
                     <View
                         android:id="@+id/replyMessageSenderView"
@@ -104,7 +107,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        app:srcCompat="@drawable/codefileicon" />
+                        app:srcCompat="@drawable/codefile" />
 
                     <TextView
                         android:id="@+id/replyMessageType"
@@ -118,23 +121,16 @@
                         android:layout_toRightOf="@+id/replyMessagePic"
                         android:text="Xml" />
 
-                    <ImageView
-                        android:id="@+id/replyMessageCancel"
-                        android:layout_width="26dp"
-                        android:layout_height="22dp"
-                        android:layout_alignTop="@+id/replyMessageSenderName"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="14dp"
-                        app:srcCompat="@drawable/starstarredmessagesicon" />
                 </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/contactMessage"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
+                    android:background="#ffffff"
                     android:gravity="center|start"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/contactMessagePic"
@@ -143,23 +139,23 @@
                         android:layout_alignTop="@+id/textView3"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="14dp"
-                        app:srcCompat="@drawable/starstarredmessagesicon" />
+                        app:srcCompat="@drawable/tickicon" />
 
                     <TextView
                         android:id="@+id/contactMessageText"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:text="Raj Kothari and 2 other contact"
-                        android:textColor="#ffffff" />
+                        android:textColor="#1976D2" />
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/imageMessage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:visibility="visible"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="4dp"
+                    android:visibility="gone"
                     tools:layout_editor_absoluteX="35dp"
                     tools:layout_editor_absoluteY="258dp" />
 
@@ -170,7 +166,7 @@
                     android:text="MessageContent"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -201,7 +197,7 @@
                         android:layout_height="20dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="10dp"
-                        app:srcCompat="@drawable/starstarredmessagesicon" />
+                        app:srcCompat="@drawable/tickicon" />
 
                     <TextView
                         android:id="@+id/messageTimeTextView"
@@ -216,7 +212,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="0dp"
-                        app:srcCompat="@drawable/starstarredmessagesicon" />
+                        app:srcCompat="@drawable/tickicon" />
 
                 </LinearLayout>
 
@@ -225,7 +221,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:background="#ffffff"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/addContactMessage"
@@ -235,10 +231,10 @@
                     android:text="Add Contact"
                     android:textColor="#ffffff"
                     android:textSize="18sp"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
             </LinearLayout>
-
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
