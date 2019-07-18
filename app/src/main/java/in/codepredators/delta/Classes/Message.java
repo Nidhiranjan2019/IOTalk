@@ -16,17 +16,45 @@ public class Message {
     //possible combination (with reply) - 0RmessageId(replied message id)     (Similarly for other 4 type)
     private String messageImage;//contain reference of image that is shared
     private String messageFile;//contain reference of code of user
-
     private HashMap<String,String> messageContact;   //(contact,contact Name)
     private Bitmap messageImageBitmap;
-    private String messageFileLocalAdress;
+//this four is used to store data from sqldatabase ,not for storing data on firebase
+    private String messageFileLocalAddress;
+    private String messageStarredStatus;
+    private String messageStatus;
+    private String messageImageLocalAddress;
 
-    public String getMessageFileLocalAdress() {
-        return messageFileLocalAdress;
+
+    public String getMessageImageLocalAddress() {
+        return messageImageLocalAddress;
     }
 
-    public void setMessageFileLocalAdress(String messageFileLocalAdress) {
-        this.messageFileLocalAdress = messageFileLocalAdress;
+    public void setMessageImageLocalAddress(String messageImageLocalAddress) {
+        this.messageImageLocalAddress = messageImageLocalAddress;
+    }
+
+    public String getMessageStatus() {
+        return messageStatus;
+    }
+
+    public void setMessageStatus(String messageStatus) {
+        this.messageStatus = messageStatus;
+    }
+
+    public String getMessageStarredStatus() {
+        return messageStarredStatus;
+    }
+
+    public void setMessageStarredStatus(String messageStarredStatus) {
+        this.messageStarredStatus = messageStarredStatus;
+    }
+
+    public String getMessageFileLocalAddress() {
+        return messageFileLocalAddress;
+    }
+
+    public void setMessageFileLocalAddress(String messageFileLocalAddress) {
+        this.messageFileLocalAddress = messageFileLocalAddress;
     }
 
     public Bitmap getMessageImageBitmap() {
@@ -106,6 +134,6 @@ public class Message {
         this.MID = MID;
     }
 
-    public Message() {
+  public Message() {
     }
 }

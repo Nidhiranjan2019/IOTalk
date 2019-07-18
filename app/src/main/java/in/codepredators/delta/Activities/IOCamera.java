@@ -24,10 +24,9 @@ public class IOCamera extends AppCompatActivity {
 
     private ImageSurfaceView mImageSurfaceView;
     private Camera camera;
-
     private FrameLayout cameraPreviewLayout;
     private ImageView capturedImageHolder;
-    int a=0;
+int a=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +77,7 @@ public class IOCamera extends AppCompatActivity {
                 Toast.makeText(IOCamera.this, "Captured image is empty", Toast.LENGTH_LONG).show();
                 return;
             }
-            //  capturedImageHolder.setImageBitmap(scaleDownBitmapImage(bitmap, 300, 200 ));
+          //  capturedImageHolder.setImageBitmap(scaleDownBitmapImage(bitmap, 300, 200 ));
             capturedImageHolder.setImageBitmap(bitmap);
         }
     };
@@ -91,7 +90,7 @@ public class IOCamera extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        // getMenuInflater().inflate(R.menu.menu_main, menu);
+       // getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

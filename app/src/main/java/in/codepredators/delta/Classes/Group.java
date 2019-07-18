@@ -2,7 +2,7 @@ package in.codepredators.delta.Classes;
 
 import java.util.HashMap;
 
-public class Group {
+public class Group extends  Message{
     private String groupName;
     private String groupDescription;
     private String groupPic;
@@ -10,11 +10,8 @@ public class Group {
     private HashMap<String,String> groupParticipant;
     private String groupFormationTime;
     private String groupCreater;
-    private HashMap<String,String> groupAdmin;
-
     public Group() {
     }
-
     public String getGroupName() {
         return groupName;
     }
@@ -70,11 +67,4 @@ public class Group {
         this.groupCreater = groupCreater;
     }
 
-    public HashMap<String, String> getGroupAdmin() {
-        return groupAdmin;
-    }
-
-    public void setGroupAdmin(HashMap<String, String> groupAdmin) {
-        this.groupAdmin = groupAdmin;
-    }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,8 @@ import in.codepredators.delta.R;
 
 
 public class RecyclerAdapterCode extends RecyclerView.Adapter<RecyclerAdapterCode.ViewHolderCode> {
-    private List<Code> codeList;
+    private List<User> userList;
+    private Context context;
 
 
     public class ViewHolderCode extends RecyclerView.ViewHolder {
@@ -40,8 +42,10 @@ public class RecyclerAdapterCode extends RecyclerView.Adapter<RecyclerAdapterCod
 
         }
     }
-    public RecyclerAdapterCode(List<Code> codeList) {
-        this.codeList = codeList;
+    public RecyclerAdapterCode(Context context  , List<User> userList) {
+
+        this.context = context;
+        this.userList = userList;
     }
     @NonNull
     @Override
@@ -52,18 +56,23 @@ public class RecyclerAdapterCode extends RecyclerView.Adapter<RecyclerAdapterCod
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderCode viewHolder, int i) {
-        Code code = codeList.get(i);
-        viewHolder. codeMessageSender.setText(code.getcodeMessageSender());
-        viewHolder.codeMessageReceiver.setText(code.getcodeMessageReceiver());
-        viewHolder.codeMessagetextView.setText(code.getcodeMessagetextView());
-        viewHolder.codeTimeOfMessagetextView.setText(code.getcodeTimeOfMessagetextView());
+        User user = userList.get(i);
+//        viewHolder. codeMessageSender.setText(user.getcodeMessageSender());
+//        viewHolder.codeMessageReceiver.setText(user.getcodeMessageReceiver());
+////        viewHolder.codeMessagetextView.setText(user.getUserCode()); //doubt how to get 1st string element from hashmap of UserCode
+//        viewHolder.codeTimeOfMessagetextView.setText(user.getcodeTimeOfMessagetextView());
 
     }
 
     @Override
     public int getItemCount() {
-
-        return codeList.size();
+return 1;
+//        return userList.size();
+    }
+    public void updateList(List<User> updatedList)
+    {
+        userList = updatedList;
+        notifyDataSetChanged();
     }
 
 }

@@ -8,6 +8,26 @@
     android:layout_height="wrap_content"
     android:background="#FFFFFF">
 
+    <ImageView
+        android:id="@+id/imageChatBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/chatTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout1ChatActivity"
         android:layout_width="wrap_content"
@@ -170,6 +190,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="3dp"
                 android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
                 android:ems="10"
                 android:fontFamily="@font/fashionfetishbold"
                 android:gravity="center_vertical"
@@ -178,7 +199,6 @@
                 android:textColor="#F2F2F2"
                 android:textColorHint="#F2F2F2"
                 android:textSize="24sp"
-                android:backgroundTint="#FFFFFF"
                 android:visibility="gone" />
 
             <ImageView
@@ -189,7 +209,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/codefileicon2" />
+                android:background="@drawable/codefileicon2"
+                tools:visibility="visible" />
 
             <ImageView
                 android:id="@+id/imageSettingsChatActivity"
@@ -198,15 +219,35 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/settingschatscreen" />
+                android:background="@drawable/settingschatscreen"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/uparrow"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/uparrow"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/backarrow"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/downarrow"
+                tools:visibility="gone" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMessagesChatActivity"
             android:layout_width="match_parent"
-            android:layout_height="544dp"
-            android:layout_marginTop="0dp"
-            android:background="#FFFFFF" />
+            android:layout_height="477dp"
+            android:layout_marginTop="0dp" />
 
         <LinearLayout
             android:id="@+id/linearLayoutChatCodeList"
@@ -257,6 +298,7 @@
                 android:visibility="visible" />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/linearLayout5ChatActivity"
@@ -348,7 +390,7 @@
     <LinearLayout
         android:id="@+id/phoneDataSelection"
         android:layout_width="281dp"
-        android:layout_height="237dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="76dp"
@@ -435,7 +477,8 @@
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
-            android:layout_height="127dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -492,4 +535,78 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/showReply"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/shape_middle_receivedmsg"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/replyMessageSenderView"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/replyMessagePic"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="-10dp"
+            android:background="#FFF800" />
+
+        <TextView
+            android:id="@+id/replyMessageSenderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+
+            android:text="Emma Watson"
+            android:textColor="#FFF800"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="146dp" />
+
+        <ImageView
+            android:id="@+id/replyMessagePic"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/replyMessageSenderName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/codefile" />
+
+        <TextView
+            android:id="@+id/replyMessageType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/replyMessageSenderName"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/replyMessagePic"
+            android:layout_toRightOf="@+id/replyMessagePic"
+            android:text="Xml" />
+
+        <ImageView
+            android:id="@+id/replyMessageCancel"
+            android:layout_width="26dp"
+            android:layout_height="22dp"
+            android:layout_alignTop="@+id/replyMessageSenderName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14dp"
+            app:srcCompat="@drawable/star" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -51,10 +52,17 @@ public class NewChatButton extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.iotalkactivity_select_contacts);
+
+
+
+
+
         searchIcon = findViewById(R.id.viewSearchSelectContacts);
         optionsIcon = findViewById(R.id.viewSettingsSelectContacts);
         tickIcon = findViewById(R.id.viewSelectContacts);
@@ -198,3 +206,4 @@ public class NewChatButton extends AppCompatActivity {
 
 
 }
+
