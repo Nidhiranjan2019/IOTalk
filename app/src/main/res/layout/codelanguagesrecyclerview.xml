@@ -18,10 +18,10 @@
     android:paddingRight="16dp"
     android:paddingBottom="-10dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/codeLanguageLinearLayout2"
-        android:layout_width="300dp"
-        android:layout_height="29dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/codelanguagebackground"
@@ -35,7 +35,9 @@
         <TextView
             android:id="@+id/codeLanguageEnter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:fontFamily="@font/chivoregular"
             android:gravity="center"
@@ -45,13 +47,14 @@
         <ImageView
             android:id="@+id/codeLanguageCheckboximageView"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="-65dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/codeLanguageEnter"
+            android:layout_alignBottom="@+id/codeLanguageEnter"
             android:layout_weight="1"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/purplecheckbox" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
