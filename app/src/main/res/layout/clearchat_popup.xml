@@ -12,8 +12,9 @@
     <TextView
         android:id="@+id/textViewClearChat"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_marginTop="3dp"
+        android:layout_height="20dp"
+        android:paddingTop="5dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/fashionfetishbold"
         android:gravity="center"
         android:lineSpacingExtra="10sp"
@@ -24,7 +25,7 @@
     <TextView
         android:id="@+id/textViewSureClearChat"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/fashionfetishbold"
         android:gravity="center"
@@ -33,39 +34,80 @@
         android:textColor="#707070"
         android:textSize="10sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutMediaChatDelete"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout1ClearChat"
         android:layout_width="match_parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/checkBox1ClearChat"
-            android:layout_width="wrap_content"
+            android:layout_width="19dp"
             android:layout_height="19dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="19dp"
-            android:background="@drawable/custom_checkbox" />
+            android:background="@drawable/custom_checkbox"
+            app:layout_constraintStart_toStartOf="@id/linearLayout1ClearChat"
+            app:layout_constraintTop_toTopOf="@id/linearLayout1ClearChat" />
 
         <TextView
             android:id="@+id/textViewMediaClearChat"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
+            android:paddingTop="5dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:fontFamily="@font/fashionfetishbold"
+            app:layout_constraintTop_toTopOf="@id/linearLayout1ClearChat"
+            app:layout_constraintStart_toEndOf="@id/checkBox1ClearChat"
             android:gravity="center"
             android:lineSpacingExtra="10sp"
             android:text="Delete related media from my device "
             android:textColor="#707070"
             android:textSize="12sp" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2ClearChat"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkBox2ClearChat"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:background="@drawable/custom_checkbox"
+            app:layout_constraintStart_toStartOf="@id/linearLayout2ClearChat"
+            app:layout_constraintTop_toTopOf="@id/linearLayout2ClearChat" />
+
+        <TextView
+            android:id="@+id/textViewStarredMessagesClearChat"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/fashionfetishbold"
+            app:layout_constraintTop_toTopOf="@id/linearLayout2ClearChat"
+            app:layout_constraintStart_toEndOf="@id/checkBox2ClearChat"
+            android:gravity="center"
+            android:lineSpacingExtra="10sp"
+            android:text="Delete starred messages "
+            android:textColor="#707070"
+            android:textSize="12sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3ClearChat"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
