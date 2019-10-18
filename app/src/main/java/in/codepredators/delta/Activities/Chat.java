@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import in.codepredators.delta.Classes.DatabaseHelperMessage;
+import in.codepredators.delta.Classes.Group;
+import in.codepredators.delta.Classes.IOCamera;
 import in.codepredators.delta.Classes.Message;
 import in.codepredators.delta.Classes.PersonalMessage;
 import in.codepredators.delta.Classes.RealPathUtil;
@@ -74,10 +76,13 @@ import java.util.List;
 import java.util.Locale;
 
 public class Chat extends AppCompatActivity {
+
+    String chatType="group";
+
+
+
     HashMap<String, String> hashmap = new HashMap<>();
-
     List<Integer> searchedPosition;
-
     EditText searchText;
     ImageView uparrow;
     ImageView downarrow;
@@ -121,26 +126,23 @@ public class Chat extends AppCompatActivity {
     String FILE = "0";
     String REPLIED = "0";
     PersonalMessage personalMessage;
-
+    Group group;
     RelativeLayout showReplyMessage;
     View replyMessageView;
     TextView replyMessageSenderName;
     TextView replyMessageType;
     ImageView replyMessageCancel;
     ImageView replyMessagePic;
-
     RecyclerView.LayoutManager mLayoutManager;
     Message m;
     Message n;
     DatabaseReference messageReference;
     ChildEventListener childEventListener;
-
     int a = 0;
     int g = 0;
     int RESULT_LOAD_IMAGE = 0;
     int RESULT_LOAD_DOCUMENT = 0;
     int REQUEST_GET_SINGLE_FILE = 1;
-
     Uri imageUri;
     String timeOfDataSaving;
     TextView selectedMessageNumber;
@@ -186,11 +188,10 @@ public class Chat extends AppCompatActivity {
 
 //    public void showPdf(String filePath){
 //            Log.i("showingPdf", "strat");
-//        Uri fileURI = Uri.fromFile(new File(filePath));
+//            Uri fileURI = Uri.fromFile(new File(filePath));
 //            Intent intent = new Intent(Intent.ACTION_VIEW);
 //            Log.i("showingPdf", "intentcreated");
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //            intent.setDataAndType(fileURI, "application/pdf");
 //            Log.i("showingPdf", "intentcreatedforpdf");
 //            startActivity(intent);
@@ -408,12 +409,29 @@ user2.setUserLanguages(hashmap);
             //check that given id is uid or gid
             //check it is present in database or not
             //if it is present than take necesary data from sql and fill in personal message object or gid
-//personal Message object should be saved from sql database
+            //personal Message object should be saved from sql database
 
+            if(chatType.equals("personal")){
+                //this detail is given chat list activity
             personalMessage = new PersonalMessage();
             personalMessage.setPID(getPID("6205572993", user2.getUserNumber()));
             personalMessage.setPersonalUserOne(UID);
             personalMessage.setPersonalUserTwo(user2.getUID());
+            }else{
+                group = new Group();
+                HashMap<String,String> hashmap = new HashMap<>();
+                hashmap.put("admin","MeINhuTy1oYhjiM81QIbzZFhqup1");
+                hashmap.put("not admin","E9UjEKO8YjNE0geM8PaVUl0XyYa2");
+                hashmap.put("not admin","8FM1u4ZmRoXwlnOcdBDnATbd8Fw1");
+                group.setGID("GID9998887776Thu May 30 11:11:13 GMT+05:30 2019");
+                group.setGroupCreater("MeINhuTy1oYhjiM81QIbzZFhqup1");
+                group.setGroupDescription("tytyty");
+                group.setGroupFormationTime("Thu May 30 11:11:13 GMT+05:30 2019");
+                group.setGroupName("uiui");
+                group.setGroupParticipant(hashmap);
+                group.setGroupPic("https://firebasestorage.googleapis.com/v0/b/iotalk-552e3.appspot.com/o/images.jpg?alt=media&token=f425c0d9-c522-4178-8f1d-e59003cacd28");
+
+            }
             a = 1;
         }
 
@@ -478,7 +496,7 @@ user2.setUserLanguages(hashmap);
         phoneCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Chat.this,IOCamera.class);
+                Intent intent = new Intent(Chat.this, IOCamera.class);
                 startActivity(intent);
                 if(IMAGE.equals("1"))
                 {
@@ -569,11 +587,9 @@ user2.setUserLanguages(hashmap);
             @Override
             public void onClick(View v) {
                 Log.i("searchFromList","downarrowclicked");
-
                 index = index + 1;
               try
               {
-
                   messagesRecycler.smoothScrollToPosition(searchedPosition.get(index));
                   Log.i("searchFromList","scroll is completed");
               }
@@ -599,7 +615,7 @@ user2.setUserLanguages(hashmap);
                 }
             }
         });
-
+/// changes needed for group transformation in menu optionCaller
         menuOptionCaller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -813,26 +829,30 @@ Log.i("sendmessageClicked","done") ;
                 Log.i("abcdefg","ChatLine312");
             if(a==0)
                 {
+                    if(chatType.equals("personal")) {
+                        personalMessage = new PersonalMessage();
+                        personalMessage.setPersonalUserOne(sharedPreferences.getString("UserOne", "NOTFOUND"));
+                        personalMessage.setPID(sharedPreferences.getString("PID", "NOTFOUND"));
+                        personalMessage.setPersonalUserTwo(sharedPreferences.getString("UserTwo", "NOTFOUND"));
 
-                    personalMessage = new PersonalMessage();
-                    personalMessage.setPersonalUserOne(sharedPreferences.getString("UserOne","NOTFOUND"));
-                    personalMessage.setPID(sharedPreferences.getString("PID","NOTFOUND"));
-                    personalMessage.setPersonalUserTwo(sharedPreferences.getString("UserTwo","NOTFOUND"));
+                        // personalMessage.setPID(getPID(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber(),user2.getUserNumber()));
+                        personalMessage.setPID(getPID("6205572993", user2.getUserNumber()));
+                        personalMessage.setPersonalUserOne(UID);
+                        personalMessage.setPersonalUserTwo(user2.getUID());
 
-                   // personalMessage.setPID(getPID(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber(),user2.getUserNumber()));
-                    personalMessage.setPID(getPID("6205572993",user2.getUserNumber()));
-                    personalMessage.setPersonalUserOne(UID);
-                    personalMessage.setPersonalUserTwo(user2.getUID());
-
-                    editor.putString("UserOne",personalMessage.getPersonalUserOne());
-                    editor.putString("UserTwo",personalMessage.getPersonalUserTwo());
-                    editor.putString("Messages","messageblock");
-                    editor.commit();
-                    FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).setValue(personalMessage);
+                        editor.putString("UserOne", personalMessage.getPersonalUserOne());
+                        editor.putString("UserTwo", personalMessage.getPersonalUserTwo());
+                        editor.putString("Messages", "messageblock");
+                        editor.commit();
+                        FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).setValue(personalMessage);
 //
 //
-                //    setRecyclerAndFirebase(TEXT,IMAGE,CONTACT,FILE,REPLIED);
-                    Log.i("abcdefg","ChatLine334");
+                        //    setRecyclerAndFirebase(TEXT,IMAGE,CONTACT,FILE,REPLIED);
+                        Log.i("abcdefg", "ChatLine334");
+                    }else{
+                       //nothing to do all things are already there
+
+                    }
                     a=1;
                 }
                 else
@@ -843,7 +863,13 @@ Log.i("sendmessageClicked","done") ;
             }
         });
 
-           messageReference = FirebaseDatabase.getInstance().getReference().child("personalMessage").child(getPID("6205572993",user2.getUserNumber())).child("messages");
+        if(chatType.equals("personal")) {
+            messageReference = FirebaseDatabase.getInstance().getReference().child("personalMessage").child(getPID("6205572993", user2.getUserNumber())).child("messages");
+        }else{
+            messageReference = FirebaseDatabase.getInstance().getReference().child("groups").child(group.getGID()).child("messages");
+
+        }
+
            childEventListener = new ChildEventListener() {
                @Override
                public void onChildAdded(@NonNull final DataSnapshot dataSnapshot, @Nullable String s) {
@@ -1158,9 +1184,6 @@ public static Bitmap bitmap2;
         PID = "PID" + U1Number + U2Number;
         return PID;
     }
-
-
-
     public void setRecyclerAndFirebase(String T,String I,String C,String F,String R)
     {
         if(messageList.size()==0) {
@@ -1168,7 +1191,13 @@ public static Bitmap bitmap2;
             clearMessage.setMID("clear is done");
             databaseMessage.deleteDownload(clearMessage, 0);
         }
-        String starredMessage = null,StatusMessage = "NotSend",PGID = personalMessage.getPID(),ContactMessage = null;
+
+            String starredMessage = null, StatusMessage = "NotSend", PGID, ContactMessage = null;
+        if (chatType.equals("personal")){
+            PGID = personalMessage.getPID();
+        }else{
+            PGID = group.getGID();
+        }
         final int a=0;
 
         if(codecheckBox.isChecked())
@@ -1188,7 +1217,11 @@ public static Bitmap bitmap2;
                     m.setMessageText(messageContent.getText().toString());
                 }
                 m.setMessageTime(getTime());
-                m.setMID(getMID(personalMessage.getPID()));
+                if(chatType.equals("personal")){
+                m.setMID(getMID(personalMessage.getPID()));}
+                else{
+                    m.setMID(getMID(group.getGID()));
+                }
                 if(I.equals("1"))
                 {
                     m.setMessageImage(timeOfDataSaving + ".jpg");
@@ -1242,7 +1275,12 @@ public static Bitmap bitmap2;
     }
     public void settingFirebase(String T,String I,String C,String F,String R,Message m)
     {
-        String starredMessage = null,StatusMessage = "NotSend",PGID = personalMessage.getPID(),ContactMessage = null;
+        String starredMessage = null,StatusMessage = "NotSend",PGID,ContactMessage = null;
+        if (chatType.equals("personal")){
+            PGID = personalMessage.getPID();
+        }else{
+            PGID = group.getGID();
+        }
         editor.putString("MID",m.getMID());
         if(T.equals("1")) {
             editor.putString("MessageText", m.getMessageText());
@@ -1283,7 +1321,11 @@ public static Bitmap bitmap2;
                             n.setMessageImageBitmap(null);
                             n.setMessageFileLocalAddress(null);
                             n.setMessageImageLocalAddress(null);
-                            FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages").child(n.getMID()).setValue(n);
+                            if(chatType.equals("personal")) {
+                                FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages").child(n.getMID()).setValue(n);
+                            }else{
+                                FirebaseDatabase.getInstance().getReference().child("groups").child(group.getGID()).child("messages").child(n.getMID()).setValue(n);
+                            }
                             Toast.makeText(getApplicationContext(),"FirebaseWorkCompleted",Toast.LENGTH_LONG).show();
                             n = new Message();
                         }
@@ -1301,11 +1343,20 @@ public static Bitmap bitmap2;
 
         //   FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages").setValue(m);
         if(!I.equals("1") && !F.equals("1")) {
-            FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages").child(m.getMID()).setValue(m);
+            if(chatType.equals("personal")) {
+                FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages").child(m.getMID()).setValue(m);
+            }else{
+                FirebaseDatabase.getInstance().getReference().child("groups").child(group.getGID()).child("messages").child(m.getMID()).setValue(m);
+            }
         }
         if(C.equals("1"))
         {
+            if (chatType.equals("personal")){
             FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages").child(m.getMID()).child("messageContact").setValue(messageContactList);
+            }else{
+                FirebaseDatabase.getInstance().getReference().child("groups").child(group.getGID()).child("messages").child(m.getMID()).child("messageContact").setValue(messageContactList);
+
+            }
         }
         if(I.equals("1"))
         {
@@ -1324,7 +1375,11 @@ public static Bitmap bitmap2;
         for(Message m : forwardList)
         {
             m.setMessageTime(getTime());
-            m.setMID(personalMessage.getPID());
+            if(chatType.equals("personal")){
+            m.setMID(personalMessage.getPID());}
+            else{
+                m.setMID(group.getGID());
+            }
             m.setMessagesenderUID(UID);
             m.setMessageStarredStatus(null);
             if(m.getMessageType().charAt(4) != '0')
