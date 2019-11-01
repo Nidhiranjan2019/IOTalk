@@ -10,23 +10,18 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1StarredMessages"
-        android:layout_width="415dp"
-        android:layout_height="735dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout2StarredMessages"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:layout_marginTop="41dp"
-            android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:orientation="horizontal"
             android:textColor="#FFFFFF"
@@ -34,41 +29,48 @@
 
             <TextView
                 android:id="@+id/textViewStarredMessages"
-                android:layout_width="356dp"
+                android:layout_width="wrap_content"
                 android:layout_height="43dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/fashionfetishbold"
                 android:gravity="center_vertical"
                 android:text="Starred Messages"
                 android:textColor="#FFFFFF"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/viewSearchSelectContacts"
-                android:layout_width="70dp"
+                android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="0dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                app:layout_constraintEnd_toStartOf="@id/viewSettingsSelectContacts"
+                app:layout_constraintTop_toTopOf="parent"
                 android:background="@drawable/searchiconchatscreen" />
 
             <ImageView
                 android:id="@+id/viewSettingsSelectContacts"
-                android:layout_width="80dp"
+                android:layout_width="30dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/settingschatscreen" />
-        </LinearLayout>
+                android:background="@drawable/settingschatscreen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewStarredMessages"
             android:layout_width="match_parent"
-            android:layout_height="648dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="0dp" />
 
     </LinearLayout>
