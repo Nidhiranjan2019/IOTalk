@@ -8,10 +8,10 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayoutUserAccountInfo"
-        android:layout_width="413dp"
-        android:layout_height="732dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,9 +22,9 @@
         <TextView
             android:id="@+id/textViewSetupAccountUserAccountInfo"
             android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_height="62dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="3dp"
             android:background="@drawable/gradient_profileinfo"
             android:fontFamily="@font/chivoregular"
             android:gravity="center"
@@ -35,8 +35,11 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollViewUserAccount"
             android:layout_width="match_parent"
-            android:layout_height="476dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="30dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewSetupAccountUserAccountInfo"
             android:fadeScrollbars="false"
             android:fillViewport="true"
             android:scrollbarStyle="insideInset"
@@ -81,15 +84,15 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="30dp"
-                    android:textColorHint="#81818A"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
-                    android:ems="10"
-                    android:textColor="#000000"
                     android:ellipsize="end"
+                    android:ems="10"
                     android:fontFamily="@font/chivoregular"
                     android:hint=" Enter Username "
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColor="#000000"
+                    android:textColorHint="#81818A" />
 
                 <TextView
                     android:id="@+id/textView2UserAccountInfo2"
@@ -107,17 +110,17 @@
                     android:id="@+id/editTextBioUserAccountInfo2"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:ellipsize="end"
-                    android:textColorHint="#81818A"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/usernamebioborder"
+                    android:ellipsize="end"
                     android:ems="10"
-                    android:textColor="#000000"
                     android:fontFamily="@font/chivoregular"
                     android:hint=" Hello there! "
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textColorHint="#81818A" />
 
                 <TextView
                     android:id="@+id/textView3ChooseLanguage2"
@@ -173,7 +176,7 @@
                     android:fadeScrollbars="false"
                     android:scrollbarStyle="insideInset"
                     android:scrollbarThumbVertical="@android:color/holo_purple"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imageViewWhiteDownArrowUserProfile"
@@ -192,9 +195,11 @@
             android:id="@+id/textViewProceedUserAccountInfo2"
             android:layout_width="match_parent"
             android:layout_height="73dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="30dp"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/gradient_signin2"
             android:fontFamily="@font/chivoregular"
             android:gravity="center"
@@ -206,6 +211,6 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
