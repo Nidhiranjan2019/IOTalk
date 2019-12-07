@@ -75,6 +75,24 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * {@link #selectedMessage(Message, int)}                                     Handles the selecting and de-selecting of any message
+ * {@link #createShorcut()}                                                   Creating chat shortcut
+ * {@link #removeShorcuts()}                                                  Removing chat shortcut
+ * {@link #reverseSelectedMessage()}                                          Recalling the selected message
+ * {@link #setReplyMessage(int)}                                              Sets up the reply to any image, contact or text message
+ * {@link #cameraImageBitmap(Bitmap)}
+ * {@link #getMID(String)}                                                    Creates and returns message Id
+ * {@link #getPID(String, String)}                                            Creates and returns pid
+ * {@link #getTime()}                                                         Returns message time
+ * {@link #setRecyclerAndFirebase(String, String, String, String, String)}    Sets up the recyler according to the message type
+ * {@link #setTextInTextView(String)}
+ * {@link #settingFirebase(String, String, String, String, String, Message)}  Commits message on the firebase according to the message type
+ * {@link #forwardMessages(List)}
+ * {@link #generateChatFile(Context, String, String, String)}
+ * {@link #onMenuSearchTap()}                                                 Handles the click on the search icon
+ */
+
 public class Chat extends AppCompatActivity {
 
     String chatType="group";
