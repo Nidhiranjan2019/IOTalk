@@ -1,275 +1,393 @@
 package in.codepredators.delta.Activities;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import in.codepredators.delta.Classes.ChatFragment;
-import in.codepredators.delta.Classes.CodeFragment;
+import in.codepredators.delta.Classes.DatabaseHelperPersonDetail;
+import in.codepredators.delta.Classes.Group;
 import in.codepredators.delta.Classes.Message;
-import in.codepredators.delta.Classes.ArchiveFragment;
 import in.codepredators.delta.Classes.PersonalMessage;
 import in.codepredators.delta.Classes.RecyclerAdapterChatList;
 import in.codepredators.delta.Classes.User;
-import in.codepredators.delta.Classes.ViewPagerAdapter;
+import in.codepredators.delta.Fragment.ArchiveFragment;
+import in.codepredators.delta.Fragment.ChatFragment;
+import in.codepredators.delta.Fragment.CodeFragment;
 import in.codepredators.delta.R;
 
+/**
+ * {@link #chatListObject()}                                       Sets and returns an object of class ChatListItem
+ * {@link #selectedChat(ChatListItem, int)}                        Handles the clicking and selecting of any chat
+ * {@link #sendNotificationToUser(String, String)}                 Sends notification to user that a message has been received
+ */
+
 public class ChatList extends AppCompatActivity {
-    private ImageView searchIcon;
-    private ImageView backIcon;
-    private ImageView optionsIcon;
-
-    private FloatingActionButton newChatButton;
-    private RecyclerView recyclerView;
-    private EditText searchBar;
-    DatabaseReference mChatMessagesDb;
-    PersonalMessage personalMessage = new PersonalMessage();
-    Message messages = new Message();
-    public List<User> userList;
-
-    private TextView iotalk;
-    private TabLayout tabLayout;
-    RecyclerAdapterChatList Object1;
-    public static LinearLayout linearLayout;
-    public static LinearLayout linearLayout1;
-    public static ImageView backIconCAB;
-    public static ImageView pinIcon;
-    public static ImageView muteIcon;
-    public static ImageView archiveIcon;
-    public static ImageView optionsIconCAB;
 
 
+    ImageView backArrow;
+    static  TextView noOfChatsSelected;
+    ImageView pinChat;
+    ImageView muteChat;
+    ImageView archiveChat;
+    ImageView searchIcon;
+    EditText searchEditText ;
+    TextView iotalkText;
 
 
+    ViewPager viewPager;
+    TabLayout tabs;
 
-    ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-//    public int listSize = Object.getItemCount();
 
-    private ViewPager viewPager;
+    String testNames[] = {
+            "Raj Kothari",
+            "Kumar Harsh",
+            "Parth Sharma",
+            "Garima Singh",
+            "Anushka Chandel",
+            "Rakshita Jain",
+            "Raj Kothari 2",
+            "Kumar Harsh 2",
+            "Parth Sharma 2",
+            "Garima Singh 2"
+    };
 
+    public static String UID = "abcd";
+    RecyclerView chatListRecycler;
+    LinearLayoutManager layoutManager;
+    RecyclerAdapterChatList recyclerAdapterChatList;
+    List<ChatListItem> chatList;
+    DatabaseHelperPersonDetail databaseHelperPersonDetail;
+    FloatingActionButton floatingActionButton;
+    public static LinearLayout linearLayout , linearLayout2 ;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.iotalkactivity_chatscreen);
 
+//        showChatList();
 
-        viewPager = (ViewPager) findViewById(R.id.viewpagerChatList);
-
-
+        floatingActionButton = findViewById(R.id.floatingActionNewChat);
+        backArrow = findViewById(R.id.imageViewBackButton);
+        noOfChatsSelected= findViewById(R.id.noOfItemsSelected);
+        pinChat= findViewById(R.id.pushPinIconImageView);
+        muteChat= findViewById(R.id.muteIconImageView);
+        archiveChat= findViewById(R.id.archiveIconImageView);
         searchIcon = findViewById(R.id.viewSearchChatScreen);
-        optionsIcon = findViewById(R.id.viewSettingsChatScreen);
-        newChatButton = findViewById(R.id.floatingActionNewChat);
-//        mChatMessagesDb = FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).child("messages");
-
-        tabLayout = findViewById(R.id.tabs);
-        iotalk = findViewById(R.id.textViewIOTalkChatScreen);
-        searchBar = findViewById(R.id.editTextSearchChatScreen);
-        backIcon = findViewById(R.id.imageViewBackButton);
+        searchEditText = findViewById(R.id.editTextSearchChatScreen);
+        iotalkText = findViewById(R.id.textViewIOTalkChatScreen);
+        viewPager = findViewById(R.id.viewpagerChatList);
         linearLayout = findViewById(R.id.selectedChatScreenActionBar);
-        linearLayout1 = findViewById(R.id.linearLayout3ChatScreen);
-        backIconCAB = findViewById(R.id.imageViewBackArrow);
-        pinIcon = findViewById(R.id.pushPinIconImageView);
-        muteIcon = findViewById(R.id.muteIconImageView);
-        archiveIcon = findViewById(R.id.archiveIconImageView);
-        optionsIconCAB = findViewById(R.id.settingsIconImageView);
+        linearLayout2 = findViewById(R.id.linearLayout3ChatScreen);
+        tabs = findViewById(R.id.tabs);
+        sharedPreferences = getSharedPreferences("IOTalk",0);
+        editor = sharedPreferences.edit();
 
+        viewPager.setAdapter(new ChatListPagerAdapter(getSupportFragmentManager()));
+//        tabs.setupWithViewPager(viewPager);
 
-//        tabLayout.setupWithViewPager(viewPager);
-
-
-
-        userList = new ArrayList<>();
-        userList.add(new User(" Anushka"));
-        userList.add(new User("Srishti"));
-        userList.add(new User("Garima"));
-
-
-        recyclerView = findViewById(R.id.chatlistchatrecycler);
-        Object1 = new RecyclerAdapterChatList(this,userList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(Object1);
-
-
-
-
-//
-
-        optionsIcon.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creating the instance of PopupMenu
-                PopupMenu popup = new PopupMenu(ChatList.this, optionsIcon);
-                //Inflating the Popup using xml file
-                popup.getMenuInflater().inflate(R.menu.menu, popup.getMenu());
-                popup.show();//showing popup menu
+
+                        Log.i("sendmessageClicked","done") ;
+                        Log.i("abcdefg","ChatLine312");
+
+
+                          PersonalMessage  personalMessage = new PersonalMessage();
+                            personalMessage.setPersonalUserOne(sharedPreferences.getString("UserOne","NOTFOUND"));
+                            personalMessage.setPID(sharedPreferences.getString("PID","NOTFOUND"));
+                            personalMessage.setPersonalUserTwo(sharedPreferences.getString("UserTwo","NOTFOUND"));
+
+                            // personalMessage.setPID(getPID(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber(),user2.getUserNumber()));
+                            personalMessage.setPID("PID"+"8318711855"+"6205572993");
+                            personalMessage.setPersonalUserOne("MeINhuTy1oYhjiM81QIbzZFhqup1");
+                            personalMessage.setPersonalUserTwo("8FM1u4ZmRoXwlnOcdBDnATbd8Fw1");
+
+                            editor.putString("UserOne",personalMessage.getPersonalUserOne());
+                            editor.putString("UserTwo",personalMessage.getPersonalUserTwo());
+                            editor.putString("Messages","messageblock");
+                            editor.commit();
+                            FirebaseDatabase.getInstance().getReference().child("personalMessage").child(personalMessage.getPID()).setValue(personalMessage);
+
             }
         });
 
+
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition(),true);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+    });
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        pinChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        muteChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        archiveChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tabLayout.setVisibility(View.GONE);
-                iotalk.setVisibility(View.GONE);
-                searchIcon.setVisibility(View.GONE);
-                optionsIcon.setVisibility(View.GONE);
-                searchBar.setVisibility(View.VISIBLE);
-                backIcon.setVisibility(View.VISIBLE);
-
-
-//                Object.filter(text);
-                backIcon.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        tabLayout.setVisibility(View.VISIBLE);
-                        iotalk.setVisibility(View.VISIBLE);
-                        searchIcon.setVisibility(View.VISIBLE);
-                        optionsIcon.setVisibility(View.VISIBLE);
-                        searchBar.setVisibility(View.GONE);
-
-                       onBackPressed();
-
-                    }
-                });
+                searchEditText.setVisibility(View.VISIBLE);
+                iotalkText.setVisibility(View.GONE);
 
             }
         });
 
 
 
-        searchBar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
 
-            }
+            chatList = new ArrayList<>();
+        databaseHelperPersonDetail = new DatabaseHelperPersonDetail(this);
+//        for(int i=0;i<10;i++)
+//        {
+//            chatList.add(chatListObject());
+//            databaseHelperPersonDetail.insertPersonalChatDetail(chatList.get(i).getPersonalMessage(),"1:20pm","last message Id");
+//            databaseHelperPersonDetail.insertUserDetail(chatList.get(i).getUser(),"string of image converted from bitmap of image","java/c/c++/python");
+//        }
+//        chatListRecycler = findViewById(R.id.chatlistchatrecycler);
+//        layoutManager = new LinearLayoutManager(getApplicationContext());
+//        chatListRecycler.setLayoutManager(layoutManager);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
+        //start
 
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                filter(s.toString());
-            }
-        });
-
-        newChatButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ChatList.this, NewChatButton.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//
+//    recyclerAdapterChatList = new RecyclerAdapterChatList(this,chatList);
+//        sendNotificationToUser("puf", "Hi there puf!");
+//        chatListRecycler.setAdapter(recyclerAdapterChatList);
+       //end
+        Toast.makeText(this,"List is completed, now we will update it",Toast.LENGTH_LONG).show();
 
 
-    }
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, ChatList.class);
-        startActivity(intent);
-        finish();
-    }
 
-    public void filter(String text)
+}
+    @Override
+    public void onBackPressed()
     {
 
-        Log.i("searchboxtext",text);
-         List<User> filteredList = new ArrayList<>();
-        for(User user : userList)
-        {
-            if(user.getUserName().toLowerCase().contains(text.toLowerCase()))
-            {
-                Log.i("ifblocklist",user.getUserName());
-                filteredList.add(user);
-            }
+
+    }
+
+    public ChatListItem chatListObject()
+    {
+        ChatListItem chatListItem = new ChatListItem();
+        PersonalMessage personalMessage = new PersonalMessage();
+        User user = new User();
+        Message message = new Message();
+        user.setUID("1234");
+        user.setUserName("Raj kothari");
+        user.setUserNumber("9876543210");
+        message.setMessageType("10000");
+        message.setMessageText("i am here");
+        message.setMessageTime("1:20");
+        personalMessage.setPersonalUserOne("raj");
+        personalMessage.setPersonalUserTwo("Raj");
+        personalMessage.setPID("rajandRaj");
+        chatListItem.setArchive(false);
+        chatListItem.setPinStatus(false);
+        chatListItem.setMessage(message);
+        chatListItem.setUser(user);
+        chatListItem.setPersonalMessage(personalMessage);
+        return chatListItem;
+    }
+    public static void sendNotificationToUser(String user, final String message) {
+    }
+
+    public enum ChatListItemType{
+        PERSONAL,GROUP
+    }
+    public static class ChatListItem
+    {
+        private User user;
+        private Message message;
+        private PersonalMessage personalMessage;
+        private String noOfUnseenMessage;
+        private Boolean pinStatus;
+        private Boolean archive;
+        ChatListItemType chatListItemType;
+        private Group group;
+
+        public Group getGroup() {
+            return group;
         }
 
-        Object1.updateList(filteredList);
+        public void setGroup(Group group) {
+            this.group = group;
+        }
 
+        public ChatListItemType getChatListItemType() {
+            return chatListItemType;
+        }
+
+        public void setChatListItemType(ChatListItemType chatListItemType) {
+            this.chatListItemType = chatListItemType;
+        }
+
+        public Boolean getArchive() {
+            return archive;
+        }
+
+        public void setArchive(Boolean archive) {
+            this.archive = archive;
+        }
+
+        public PersonalMessage getPersonalMessage() {
+            return personalMessage;
+        }
+
+        public void setPersonalMessage(PersonalMessage personalMessage) {
+            this.personalMessage = personalMessage;
+        }
+        public String getNoOfUnseenMessage() {
+            return noOfUnseenMessage;
+        }
+
+        public void setNoOfUnseenMessage(String noOfUnseenMessage) {
+            this.noOfUnseenMessage = noOfUnseenMessage;
+        }
+
+        public Boolean getPinStatus() {
+            return pinStatus;
+        }
+
+        public void setPinStatus(Boolean pinStatus) {
+            this.pinStatus = pinStatus;
+        }
+
+        public ChatListItem() {
+        }
+
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
+
+        public Message getMessage() {
+            return message;
+        }
+
+        public void setMessage(Message message) {
+            this.message = message;
+        }
     }
 
-    public  void openChat(String messagesenderUID)
-    {
-        Intent intent = new Intent(ChatList.this , Chat.class);
-        intent.putExtra("MessageSenderUid",messagesenderUID);
-        startActivity(intent);
-        finish();
+
+
+    class ChatListPagerAdapter extends FragmentPagerAdapter {
+
+        ArrayList<Fragment> fragments;
+
+        public ChatListPagerAdapter(FragmentManager fm) {
+            super(fm);
+            fragments = new ArrayList<>();
+            fragments.add(0,new ChatFragment());
+            fragments.add(1,new ArchiveFragment());
+            fragments.add(2,new CodeFragment());
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
-    public static void layoutVisible()
-    {
-        linearLayout.setVisibility(View.VISIBLE);
-        linearLayout1.setVisibility(View.GONE);
-        backIconCAB.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
 
+    static List<ChatListItem> selectedChatList = new ArrayList<>();
+    static int selectedChatCount = 0;
 
+    public static void selectedChat(ChatListItem m, int a) {
+        selectedChatCount = a;
+        if (selectedChatCount == 1) {
+            linearLayout.setVisibility(View.VISIBLE);
+            linearLayout2.setVisibility(View.GONE);
+            noOfChatsSelected.setText(String.valueOf(selectedChatCount));
+        }
+        if (selectedChatCount == 0) {
+            linearLayout.setVisibility(View.GONE);
+            linearLayout2.setVisibility(View.VISIBLE);
+            noOfChatsSelected.setText(String.valueOf(selectedChatCount));
+        }
 
-
-            }
-        });
-        pinIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-        muteIcon.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        archiveIcon.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-        optionsIconCAB.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-
+        if (selectedChatList.size() > selectedChatCount) {
+            selectedChatList.remove(m);
+        } else {
+            selectedChatList.add(m);
+        }
+        if (selectedChatCount > 1) {
+            noOfChatsSelected.setText(String.valueOf(selectedChatCount));
+        } else {
+            noOfChatsSelected.setText(String.valueOf(selectedChatCount));
+        }
     }
+
+
+
+
 
 }
 

@@ -20,6 +20,10 @@ import in.codepredators.delta.Classes.ImageSurfaceView;
 import in.codepredators.delta.R;
 
 
+/**
+ * {@link #checkDeviceCamera()}                                                Handles whether any exception occurs while opening the device camera
+ * {@link #scaleDownBitmapImage(Bitmap, int, int)}                             Scales the image to new width and height
+ */
 public class IOCamera extends AppCompatActivity {
 
     private ImageSurfaceView mImageSurfaceView;

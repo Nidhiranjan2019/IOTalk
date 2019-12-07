@@ -29,6 +29,12 @@ import in.codepredators.delta.Classes.ChatList;
 
 import in.codepredators.delta.R;
 
+/**
+ * {@link #verifyPhoneNumberWithCode(String, String)}                             Verifies the code entered by the user
+ * {@link #signInWithPhoneAuthCredential(PhoneAuthCredential)}                    Handles the success and failure of signing in
+ * {@link #userIsLoggedIn()}                                                      Switches to new activity after the user is successfully logged in
+ * {@link #startPhoneNumberVerification()}                                        Starts the verification after the code is entered into the editText.
+ */
 public class Registration extends AppCompatActivity
 {
     private EditText mPhoneNumber , mCode ;

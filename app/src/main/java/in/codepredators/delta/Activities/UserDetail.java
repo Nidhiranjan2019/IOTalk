@@ -39,7 +39,9 @@ import in.codepredators.delta.Classes.RecyclerAdapterCodeLanguages;
 import in.codepredators.delta.Classes.User;
 import in.codepredators.delta.R;
 
-
+/**
+ * {@link #usercodelistfunc(String)}                    Adds the argument into the code list of the user
+ */
 
 public class UserDetail extends AppCompatActivity {
 

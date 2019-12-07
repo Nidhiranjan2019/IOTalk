@@ -36,7 +36,11 @@ import in.codepredators.delta.Classes.RecyclerAdapterSelectContacts;
 import in.codepredators.delta.Classes.User;
 import in.codepredators.delta.R;
 
-
+/**
+ * {@link #displayContacts()}                                     Displays the list of contacts from the phone's contact list
+ * {@link #callChatActivity(User)}                                Passes the current user object and calls the chat activity
+ * {@link #selectedMessage(User, int)}                            Handles the clicking and selecting of any message
+ */
 
 public class NewChatButton extends AppCompatActivity {
     private static long[] i;

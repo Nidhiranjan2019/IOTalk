@@ -57,6 +57,13 @@ import in.codepredators.delta.Classes.RecyclerAdapterNewGroup;
 import in.codepredators.delta.Classes.User;
 import in.codepredators.delta.R;
 
+/**
+ * {@link #filter(String)}                                         Filters the contact list according to the text entered by the user in the search box
+ * {@link #createGID(String, String, String)}                      Creates the group id for the group formation
+ * {@link #requestLocationPermission()}                            Requests to access the contacts of the user
+ * {@link #onRequestPermissionsResult(int, String[], int[])}       Handles the result of request
+ * {@link #displayContacts()}                                      Displays the list of contacts from the phone's contact list
+ */
 public class NewGroupFormation extends AppCompatActivity {
 
     private StorageReference mStorageRef;
