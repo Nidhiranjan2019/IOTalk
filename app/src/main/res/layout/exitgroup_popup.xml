@@ -18,7 +18,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/fashionfetishbold"
         android:gravity="center"
-        android:text='Exit "Emma Watson" group?'
+        android:text='Are you sure you want to exit this group?'
         android:textColor="#000000"
         android:textSize="14sp" />
 

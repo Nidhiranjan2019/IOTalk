@@ -69,13 +69,15 @@
 
         <TextView
             android:id="@+id/chatListName"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
             android:fontFamily="@font/chivoregular"
             android:gravity="left"
-            android:text="Contact Name"
+            android:text="Contact Name Contact Name Contact Name Contact Name"
             android:textColor="#000000"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@id/chatListLinearLayout5"
@@ -101,23 +103,23 @@
 
                 <ImageView
                     android:id="@+id/imageViewAttachIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
                     app:srcCompat="@drawable/pinicon" />
 
 
                 <TextView
                     android:id="@+id/textViewNoOfUnseenMessages"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="2dp"
                     android:background="@drawable/roundunseenmessagesbackground"
                     android:fontFamily="@font/chivoregular"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="10"
+                    android:padding="5dp"
                     android:textColor="#000000" />
 
             </LinearLayout>
@@ -126,10 +128,10 @@
                 android:id="@+id/textViewTimeOfMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="7dp"
                 android:fontFamily="@font/chivoregular"
                 android:gravity="right"
-                android:text="Time"
+                android:text="33:55555"
                 android:textColor="#000000"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"

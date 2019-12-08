@@ -12,7 +12,7 @@
     <TextView
         android:id="@+id/textViewClearChat"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:paddingTop="5dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/fashionfetishbold"
@@ -25,7 +25,7 @@
     <TextView
         android:id="@+id/textViewSureClearChat"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/fashionfetishbold"
         android:gravity="center"
@@ -38,15 +38,15 @@
         android:id="@+id/linearLayout1ClearChat"
         android:layout_width="match_parent"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/checkBox1ClearChat"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@drawable/custom_checkbox"
             app:layout_constraintStart_toStartOf="@id/linearLayout1ClearChat"
             app:layout_constraintTop_toTopOf="@id/linearLayout1ClearChat" />
@@ -54,7 +54,7 @@
         <TextView
             android:id="@+id/textViewMediaClearChat"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:paddingTop="5dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
@@ -80,8 +80,8 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/checkBox2ClearChat"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@drawable/custom_checkbox"
             app:layout_constraintStart_toStartOf="@id/linearLayout2ClearChat"
             app:layout_constraintTop_toTopOf="@id/linearLayout2ClearChat" />
@@ -89,7 +89,7 @@
         <TextView
             android:id="@+id/textViewStarredMessagesClearChat"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"

@@ -38,7 +38,7 @@
                 android:gravity="center_vertical"
                 android:text="Starred Messages"
                 android:textColor="#FFFFFF"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +48,7 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 app:layout_constraintEnd_toStartOf="@id/viewSettingsSelectContacts"
@@ -59,7 +59,7 @@
                 android:id="@+id/viewSettingsSelectContacts"
                 android:layout_width="30dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/settingschatscreen"

@@ -58,7 +58,7 @@
                 android:id="@+id/imageViewChatProfilePicPopup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 android:src="@drawable/chatfilledprofilepic" />
@@ -67,7 +67,7 @@
                 android:id="@+id/imageView2ProfilePicPopup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 android:src="@drawable/infoiconprofilepic" />
@@ -76,7 +76,7 @@
                 android:id="@+id/imageViewCodeProfilePicPopup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 android:src="@drawable/codefileprofilepic" />
